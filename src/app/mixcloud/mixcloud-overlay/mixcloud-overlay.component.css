@@ -1,0 +1,115 @@
+
+img{
+    width: minmax(580px, calc(100% - 20px));
+    max-width: 600px;
+    max-height: 600px;
+    /* padding-top: 10px; */
+    cursor: pointer;
+}
+
+h3{
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#mixcloud-widget-iframe{
+    border: 1px solid black;
+    width: 100%;
+}
+
+#btn-close-overlay{
+    /* css messes with me
+    close button centered and spread across near-full-width
+    */
+    width: calc(100% - 20px);
+    /* height: 5vmin; */
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+.btn_selectWidget{
+    cursor: pointer;
+    width: 5em;
+
+    /* min-width: 50px;
+    min-height: 50px; */
+}
+
+button{
+    /* border: 1px solid rgba(172, 50, 50, 0.5); */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+
+    border: none;
+    outline:none;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* input[type="button"]
+{
+    margin-left:35px;
+    display:block;
+    background-color:rgba(128, 128, 128, 0);
+    border-radius: 10px;
+    color:rgba(255, 255, 255, 0);
+    border: none;
+    outline:none;
+} */
+
+
+.play-count{
+    margin-bottom: 10px;
+}
+
+.stat{
+    /* margin-right: 20px; */
+
+}
+
+.stat-icon{
+    margin-right: 10px;
+}
+
+
+.overlay-icon-row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-self: center;
+
+    
+}
+
+.icon{
+    align-self: center;
+}
+
+
+.centered-overlay{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background: #FFFFFF; 
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .9);
+    z-index: 2;
+
+    border: 1px solid black;
+    padding: 5px 5px;
+    /* padding-top: 3vmax;
+    padding-bottom: 3vmax;
+    padding-left: 3vmin;
+    padding-right: 3vmin; */
+
+    max-height: 100%;
+
+    text-align: center;
+
+    /* cursor: pointer; */
+}

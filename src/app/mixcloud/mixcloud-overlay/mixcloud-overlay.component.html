@@ -1,0 +1,42 @@
+<div  >
+  <div *ngIf="isLoading" class="centered-overlay">Loading&#8230;</div>
+
+  <div *ngIf="!isLoading" class="centered-overlay" >
+    
+    <h3>{{cloudcast.name}}</h3>
+    <section class="play-count">
+      <span>
+          <p>recorded {{createdDate}}</p>
+          <!-- <iframe width="100%" height="180" ng-src="{{track.link | trustAsResourceUrl}}" frameborder="0"></iframe> -->
+          <!-- <iframe width="100%" height="400" src="https://www.mixcloud.com/widget/iframe/?feed=%2FTheSnooze%2F175-wallplugtuna-on-nsb-radio%2F" frameborder="0" ></iframe> -->
+          
+            <div class="overlay-icon-row">
+              <button (click)="selectForWidget()">
+                <i class="fas fa-play-circle icon btn_selectWidget"></i>
+              </button>
+              <span class="stat icon">
+                <span class="stat-icon">
+                  <i class="fas fa-headphones-alt"></i>
+                </span>
+                <span>{{cloudcast.play_count}}</span>
+              </span>
+
+              <span class="stat icon">
+                <span class="stat-icon">
+                  <i class="fas fa-thumbs-up"></i>
+                </span>
+                <span>{{cloudcast.favorite_count}}</span>
+              </span>
+
+              <button (click)="selectForWidget()">
+                <i class="fas fa-play-circle icon btn_selectWidget"></i>
+              </button>
+            </div>
+
+        </span>
+    </section>
+    <img [src]="cloudcast.pictures.extra_large"
+    (click)="closeOverlay()">
+    
+  </div>  
+</div>

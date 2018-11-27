@@ -1,0 +1,98 @@
+/* sub-header */
+
+/* @media all and(min-width: 50em){ */
+
+    .widget-grid{
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        border: 1px dotted red;
+    }
+/* } */
+
+
+#mixcloud-widget{
+    height: 60px;
+    /* width: 70%; */
+}
+
+#btn-random{
+
+    /* width: 30%; */
+}
+
+
+/* header */
+.header-grid{
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    width: 100%;
+    justify-items: center;
+    align-self: center;
+
+    align-items: center;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.header-portrait{
+    align-self: center;
+    width: 100%;
+}
+
+ /* shows */
+.cloudcast-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 5px;
+    width: 100%;
+    /* align-content: center; */
+    align-self: center;
+    /* align-items: center; */
+    /* justify-items: center; */
+    
+}
+
+.cloudcast{
+    display: grid;
+
+
+    justify-items: center;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.cast-thumbnail{
+    margin-top: 16px;
+}
+
+h1{
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+h2{
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+h4{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+img{
+    max-width: 100px;
+    max-height: 100px;
+    /* margin-bottom: 10px; */
+}

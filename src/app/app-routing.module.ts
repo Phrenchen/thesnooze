@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutComponent } from './mixcloud/about/about.component';
 import { MixcloudComponent } from './mixcloud/mixcloud.component';
+import { StartpageComponent } from './startpage/startpage.component';
+import { AboutComponent } from './components/about/about.component';
+
 
 const routes: Routes = [
-  { path: '', component: MixcloudComponent, pathMatch: 'full' }
+  { path: '', component: StartpageComponent, pathMatch: 'full' },
+  { path: 'mixcloud', component: MixcloudComponent },
+  { path: 'about', component: AboutComponent }
 
 ];
 

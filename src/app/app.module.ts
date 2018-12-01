@@ -8,6 +8,7 @@ import { StartpageComponent } from './startpage/startpage.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { AboutComponent } from './components/about/about.component';
+import { ArtComponent } from './art/art.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AboutComponent } from './components/about/about.component';
     MenuComponent,
     PageHeaderComponent,
     AboutComponent,
-    StartpageComponent
+    StartpageComponent,
+    ArtComponent
   ],
   imports: [
     BrowserModule,

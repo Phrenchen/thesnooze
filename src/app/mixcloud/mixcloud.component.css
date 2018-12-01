@@ -5,7 +5,6 @@
     .widget-grid{
         display: grid;
         grid-template-columns: 1fr min-content;
-        border: 1px dotted red;
     }
 /* } */
 

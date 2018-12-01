@@ -3,9 +3,21 @@
   displays array of buttons linking to other routes
 -->
 <div class="menu-grid">
-  <a [routerLink]="['/mixcloud']">WallPlugTuna</a>
-  <a [routerLink]="['/art']">Art</a>
-  <a [routerLink]="['/about']">About</a>
-
+  <div [routerLink]="['/mixcloud']"
+    class="menu-button"
+  >
+    <h3 class="menu-button-label">WallPlugTuna</h3>
+  </div>
   
+  <div [routerLink]="['/art']"
+    class="menu-button"
+  >
+    <h3 class="menu-button-label">Art</h3>
+  </div>
+  
+  <div [routerLink]="['/about']"
+    class="menu-button"
+  >
+    <h3 class="menu-button-label">WallPlugTuna</h3>
+  </div>
 </div>

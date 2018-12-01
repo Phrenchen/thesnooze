@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MixcloudComponent } from './mixcloud/mixcloud.component';
 import { StartpageComponent } from './startpage/startpage.component';
-import { AboutComponent } from './components/about/about.component';
+import { AboutComponent } from './about/about.component';
 import { ArtComponent } from './art/art.component';
 
 

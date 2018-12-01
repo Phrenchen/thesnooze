@@ -7,7 +7,7 @@ import { MixcloudModule } from './mixcloud/mixcloud.module';
 import { StartpageComponent } from './startpage/startpage.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
-import { AboutComponent } from './components/about/about.component';
+import { AboutComponent } from './about/about.component';
 import { ArtComponent } from './art/art.component';
 
 @NgModule({

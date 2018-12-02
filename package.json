@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "start": "",
     "build": "ng build",
     "postinstall": "ng build --aot --prod",
     "test": "ng test",
@@ -14,6 +15,7 @@
   "dependencies": {
     "@angular/animations": "^6.1.10",
     "@angular/cli": "^7.0.0",
+    "@angular/compiler": "^6.1.10",
     "@angular/common": "^6.1.10",
     "@angular/core": "^6.1.10",
     "@angular/forms": "^6.1.10",

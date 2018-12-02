@@ -5,6 +5,8 @@
     .widget-grid{
         display: grid;
         grid-template-columns: 1fr min-content;
+        /* border: 1px solid black; */
+        
     }
 /* } */
 
@@ -61,8 +63,8 @@
     text-align: center;
     cursor: pointer;
 
-    border: 1px solid black;
-    border-radius: 10px;
+    /* border: 1px solid black;
+    border-radius: 10px; */
 }
 
 .cast-thumbnail{

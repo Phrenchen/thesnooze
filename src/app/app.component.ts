@@ -16,4 +16,20 @@ export class SafePipe implements PipeTransform {
 })
 export class AppComponent {
   title = 'the-snooze';
+
+  constructor() {
+    // SERVICE WORKER
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./../../assets/sw_pagecache.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  }
 }

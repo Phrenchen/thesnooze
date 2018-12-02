@@ -34,8 +34,7 @@ export class MixcloudComponent implements OnInit {
 
   private widgetConfig: Array<WidgetConfig> = new Array<WidgetConfig>();
 
-  constructor(private mixcloudService: MixcloudService,
-    private sanitizer: DomSanitizer) { }
+  constructor(private mixcloudService: MixcloudService) { }
 
   ngOnInit() {
     if (!this.selectedCast) {
@@ -120,6 +119,10 @@ export class MixcloudComponent implements OnInit {
   }
 
   private async getCloudcasts() {
+    if (this.cloudCastBlob) {
+      return;
+    }
+
     const limit = 0;  // 0 : get all
     const cloudCastBlob = await this.mixcloudService.getCloudcasts(limit);
 

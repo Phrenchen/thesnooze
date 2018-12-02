@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MixcloudService } from './mixcloud.service';
+import { ArtService } from './art.service';
 
-describe('MixcloudService', () => {
+describe('ArtService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: MixcloudService = TestBed.get(MixcloudService);
+    const service: ArtService = TestBed.get(ArtService);
     expect(service).toBeTruthy();
   });
 });

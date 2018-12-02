@@ -1,0 +1,11 @@
+.art-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.selection-left{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 25%; 
+}
+

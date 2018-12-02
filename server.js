@@ -11,7 +11,7 @@ const port = process.env.PORT || 8080;
 var app = express();
 // var http = require('http');
 
-app.use(express.static(__dirname + "/dist/news-feed"));
+app.use(express.static(__dirname + "/dist/the-snooze"));
 
 
 // const privateKey = fs.readFileSync( 'server.key' );

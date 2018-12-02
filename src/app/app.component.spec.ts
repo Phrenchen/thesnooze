@@ -1,6 +1,17 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, fakeAsync, tick } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {Routes, Router} from '@angular/router';
+import { StartpageComponent } from './startpage/startpage.component';
+import { MixcloudComponent } from './mixcloud/mixcloud.component';
+import { ArtComponent } from './art/art.component';
+import { AboutComponent } from './about/about.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
+
+
+let location: Location;
+let router: Router;
+let fixture;
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,21 +26,50 @@ describe('AppComponent', () => {
   }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  // it(`should have as title 'the-snooze'`, () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.debugElement.componentInstance;
-  //   expect(app.title).toEqual('the-snooze');
-  // });
-
-  // it('should render title in a h1 tag', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain('Welcome to the-snooze!');
-  // });
 });
+
+// test routing
+const routes: Routes = [
+  { path: '', component: StartpageComponent, pathMatch: 'full' },
+  { path: 'mixcloud', component: MixcloudComponent },
+  { path: 'art', component: ArtComponent },
+  { path: 'about', component: AboutComponent }
+
+];
+
+
+
+describe('Router: App', () => {
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule.withRoutes(routes)],
+      declarations: [
+        StartpageComponent,
+        MixcloudComponent,
+        ArtComponent,
+        AboutComponent,
+        PageHeaderComponent
+      ]
+    });
+  });
+
+  router = TestBed.get(Router);
+  location = TestBed.get(Location);
+
+  fixture = TestBed.createComponent(AppComponent);
+  router.initialNavigation();
+
+});
+
+it('navigate to "" Startpage', fakeAsync(() => {
+  // router.navigate(['']);
+  // tick();
+  // expect(location.pathname).toBe('/');
+
+}));

@@ -3,9 +3,9 @@ import { ArtItem } from './model/ArtItem';
 
 
 /**
+ * (http ) GETS and serves ArtItems
  * @module Art
  * @class ArtService
- * @description (http ) GETS and serves ArtItems
  */
 @Injectable({
   providedIn: 'root'
@@ -16,18 +16,25 @@ export class ArtService {
 
   private artItems: ArtItem[];
 
+  /**
+   * returns 1 list of ArtItems
+   * @method getArtItems
+   * @return {Array<ArtItem>}
+   */
   public getArtItems(): ArtItem[] {
     if (!this.artItems) {
       this.artItems = this.staticArtItems;
     }
     return this.artItems;
   }
-
+  
   /**
+   * @private
    * @method get staticArtItems
    * @description helper factory method to construct static data
+   * @return {ArtItem[]}
    */
-  get staticArtItems(): ArtItem[] {
+  private get staticArtItems(): ArtItem[] {
     return [
       {
         title: 't1',
@@ -63,5 +70,9 @@ export class ArtService {
     ];
   }
 
+  /**
+   * empty default constructor
+   * @method constructor
+   */
   constructor() { }
 }

@@ -3,9 +3,9 @@ import { ArtService } from './art.service';
 import { ArtItem } from './model/ArtItem';
 
 /**
+ * controller in charge of managing ArtItems
  * @module Art
  * @class ArtComponent
- * @description controller in charge of managing ArtItems
  */
 @Component({
   selector: 'app-art',

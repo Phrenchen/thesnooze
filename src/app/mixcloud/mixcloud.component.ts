@@ -17,6 +17,7 @@ enum WidgetConfig {
 }
 
 /**
+ * controller in charge of handling lists of Cloudcasts
  * @module Mixcloud
  * @class MixcloudComponent
  */
@@ -40,12 +41,18 @@ export class MixcloudComponent implements OnInit {
 
 
   /**
+   * injecting MixcloudService
    * @method constructor
    * @param {MixcloudService} mixcloudService
-   * 
    */
   constructor(private mixcloudService: MixcloudService) { }
 
+
+  /**
+   * Angular lifecycle method
+   * add widget config enums into config-array
+   * @method ngOnInit
+   */
   ngOnInit() {
     if (!this.selectedCast) {
       this.getCloudcasts();
@@ -60,16 +67,10 @@ export class MixcloudComponent implements OnInit {
 
   }
 
-  // public get iFrameHeight(): string {
-  //   // return this.isWidgetRequested ? '400px' : '0px';
-  //   return '400px';
-  // }
-
-  // public get isWidgetRequested(): boolean {
-  //   return this.selectedCast !== null;
-  // }
-
-
+  /**
+   * called by view
+   * @method get widgetUrl
+   */
   public get widgetUrl(): string {
     if (!this.widgetSource) {
       return '';
@@ -88,7 +89,7 @@ export class MixcloudComponent implements OnInit {
 
   /**
    * called by view
-   * @returns url for portrait
+   * @method get portraitUrl
    */
   public get portraitUrl(): string {
     if (this.castAvailable) {
@@ -98,12 +99,20 @@ export class MixcloudComponent implements OnInit {
     }
   }
 
+  /**
+   * helper, used for early outs
+   * @method get castAvailable
+   */
   public get castAvailable(): boolean {
     return this.cloudCastBlob != null;
   }
 
 
-  // event handling
+  /**
+   * event handling. set source for widget. bound to view
+   * @method playCast
+   * @param {string} source for widget
+   */
   public playCast(castSource: string): void {
     if (castSource && castSource.length > 0) {
       this.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
@@ -112,16 +121,30 @@ export class MixcloudComponent implements OnInit {
     }
   }
 
+  /**
+   * event handling. set selected cast (user clicked on grid-item). bound to view
+   * @method onImageClicked
+   * @param {Cloudcast} selectedCloudcast for overlay
+   */
   public onImageClicked(selectedCloudcast: Cloudcast): void {
     console.log(selectedCloudcast);
     this.selectedCast = selectedCloudcast;
   }
 
+  /**
+   * event handling. de-select cast. bound to view
+   * @method closeOverlay
+   */
   public closeOverlay(): void {
     this.selectedCast = null;
   }
 
-  // prevents (re-)adding (null) items
+  /**
+   * prevents (re-)adding (null) items
+   * @method safeAdd
+   * @param {Array<any>} collection
+   * @param {any} item
+   */
   private safeAdd(collection: Array<any>, item: any): void {
     if (!collection || !item) {
       return;
@@ -132,6 +155,11 @@ export class MixcloudComponent implements OnInit {
     }
   }
 
+  /**
+   * triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API
+   * @method async getCloudcasts
+   * 
+   */
   private async getCloudcasts() {
     if (this.cloudCastBlob) {
       return;
@@ -144,7 +172,7 @@ export class MixcloudComponent implements OnInit {
     try {
       this.cloudCastBlob = cloudCastBlob;
 
-      this.widgetSource = this.getWidgetSource(this.cloudCastBlob, -1);  // first item is initial source
+      this.widgetSource = this.getWidgetSource(this.cloudCastBlob);  // add ID of specific cast. default is random
       // console.log('initial widget source: ' + this.widgetSource);
 
       // TODO: preselect to initially show the overlay! disable!
@@ -163,9 +191,16 @@ export class MixcloudComponent implements OnInit {
     }
   }
 
-  private getWidgetSource(cloudCastBlob: CloudcastBlob, castId: number): string {
+  /**
+   * extracts source url for widget for a specific or a random cast
+   * @method getWidgetSource
+   * @param {CloudcastBlob} cloudCastBlob
+   * @param {number} [-1] - castId
+   * @return {string} - sourceUrl
+   */
+  private getWidgetSource(cloudCastBlob: CloudcastBlob, castId: number = -1): string {
     try {
-      if (castId < 0) {
+      if (castId === -1) {
         // select random cast
         castId = MathHelper.getRandomInt(0, cloudCastBlob.data.length - 1);
       }

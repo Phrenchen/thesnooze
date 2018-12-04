@@ -19,12 +19,25 @@ export class MixcloudService {
 
   constructor() { }
 
-  public static getEndPointBase(user: string, requestName: string): string {
+  /**
+   * returns url for Mixcloud API
+   * @private
+   * @method getEndPointBase
+   * @param {string} user
+   * @param {string} requestName
+   */
+  private static getEndPointBase(user: string, requestName: string): string {
     return 'https://api.mixcloud.com/' + user + '/' + requestName + '/';
   }
 
 
 
+  /**
+   * gets consecutive bacth of CloudCasts
+   * @method async getNextCloudcastBatch
+   * @param {string} batchUrl
+   * @return {Promise<any>}
+   */
   public async getNextCloudcastBatch(batchUrl: string): Promise<any> {
     return Axios.get(batchUrl)
       .then((response: AxiosResponse<any>) => {
@@ -37,8 +50,10 @@ export class MixcloudService {
   }
 
   /**
-   * @method gets cloudcasts via http
-   * @param limit - max amount of items collected. default is 100 (soft-limit)
+   * via HTTP GET
+   * @method async getCloudcasts
+   * @param {number} limit - max amount of items collected. default is 100 (soft-limit)
+   * @return {Promise<any>}
    */
   public async getCloudcasts(limit: number = 0): Promise<any> {
     let endpoint = MixcloudService.getEndPointBase(MixcloudService.USER_THESNOOZE, MixcloudService.CLOUD_CASTS);
@@ -61,7 +76,11 @@ export class MixcloudService {
       });
   }
 
-  // helper
+  /**
+   * helper method to retrieve metaData.
+   * @method getMetaData
+   * @deprecated
+   */
   private getMetaData(): Promise<any> {
     const endpoint = MixcloudService.getEndPointBase(MixcloudService.USER_THESNOOZE, MixcloudService.META_DATA);
 

@@ -1,3 +1,9 @@
+/**
+ * value object
+ * @module Mixcloud
+ * @class Cloudcast
+ */
+
 export interface Cloudcast {
     tags: Array<string>;
     play_count: number;

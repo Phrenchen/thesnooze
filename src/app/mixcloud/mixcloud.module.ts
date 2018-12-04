@@ -6,6 +6,9 @@ import { MixcloudComponent } from './mixcloud.component';
 import { MixcloudOverlayComponent } from './mixcloud-overlay/mixcloud-overlay.component';
 import { SafePipe } from '../app.component';
 
+/**
+ * @module Mixcloud
+ */
 @NgModule({
   imports: [
     CommonModule,

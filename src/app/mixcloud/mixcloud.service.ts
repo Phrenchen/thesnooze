@@ -3,6 +3,8 @@ import Axios, { AxiosResponse } from 'axios';
 
 /**
  * Mixcloud connector / service
+ * @module Mixcloud
+ * @class MixcloudService
  */
 @Injectable({
   providedIn: 'root'

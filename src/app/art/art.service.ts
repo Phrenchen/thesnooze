@@ -3,6 +3,7 @@ import { ArtItem } from './model/ArtItem';
 
 
 /**
+ * @module Art
  * @class ArtService
  * @description (http ) GETS and serves ArtItems
  */

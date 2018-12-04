@@ -16,6 +16,10 @@ enum WidgetConfig {
   HIDE_ARTWORK = 'hide_artwork=1'
 }
 
+/**
+ * @module Mixcloud
+ * @class MixcloudComponent
+ */
 
 @Component({
   selector: 'app-mixcloud',
@@ -34,6 +38,12 @@ export class MixcloudComponent implements OnInit {
 
   private widgetConfig: Array<WidgetConfig> = new Array<WidgetConfig>();
 
+
+  /**
+   * @method constructor
+   * @param {MixcloudService} mixcloudService
+   * 
+   */
   constructor(private mixcloudService: MixcloudService) { }
 
   ngOnInit() {

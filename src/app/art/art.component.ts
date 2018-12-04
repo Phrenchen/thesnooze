@@ -3,6 +3,7 @@ import { ArtService } from './art.service';
 import { ArtItem } from './model/ArtItem';
 
 /**
+ * @module Art
  * @class ArtComponent
  * @description controller in charge of managing ArtItems
  */

@@ -1,4 +1,4 @@
-const CACHE_NAME = "v1";
+const CACHE_NAME = "v1.1";
 
 //---------------------------
 self.addEventListener('activate', function(event) {

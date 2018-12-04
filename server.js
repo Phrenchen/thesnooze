@@ -38,7 +38,7 @@ app.listen(port, () => {
     console.log(`-> listening on port ${port}`);
 });
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*', 'always');
     res.sendFile(path.join(__dirname, '/dist/the-snooze/index.html'));
 });

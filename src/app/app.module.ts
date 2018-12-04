@@ -11,6 +11,9 @@ import { AboutComponent } from './about/about.component';
 import { ArtComponent } from './art/art.component';
 import { ItemSelectorComponent } from './art/item-selector/item-selector.component';
 
+/**
+ * AppModule description
+ */
 @NgModule({
   declarations: [
     AppComponent,

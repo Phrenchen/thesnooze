@@ -1,0 +1,16 @@
+{
+    "name": "TheSnooze Portfolio",
+    "description": "documentation for the Angular | TypeScript project",
+    "version": "0.0.1",
+    "url": "https://thesnooze.herokuapp.com/",
+    "options": {
+        "linkNatives": "true",
+        "attributesEmit": "true",
+        "outdir": "./docs",
+        "paths": [
+            "*"
+        ],
+        "extension": ".ts"
+    }
+}
+

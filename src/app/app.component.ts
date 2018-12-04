@@ -17,6 +17,10 @@ export class SafePipe implements PipeTransform {
 export class AppComponent {
   title = 'the-snooze';
 
+
+  /**
+   * initializes service worker
+   */
   constructor() {
     // SERVICE WORKER
 

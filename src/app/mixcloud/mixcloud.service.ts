@@ -1,6 +1,9 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import Axios, { AxiosResponse } from 'axios';
 
+/**
+ * Mixcloud connector / service
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +34,10 @@ export class MixcloudService {
       });
   }
 
+  /**
+   * @method gets cloudcasts via http
+   * @param limit - max amount of items collected. default is 100 (soft-limit)
+   */
   public async getCloudcasts(limit: number = 0): Promise<any> {
     let endpoint = MixcloudService.getEndPointBase(MixcloudService.USER_THESNOOZE, MixcloudService.CLOUD_CASTS);
     // batches contain max 100 cloudcasts. load in batches of a 100

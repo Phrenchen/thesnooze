@@ -50,14 +50,14 @@ export class MixcloudComponent implements OnInit {
 
   }
 
-  public get iFrameHeight(): string {
-    // return this.isWidgetRequested ? '400px' : '0px';
-    return '400px';
-  }
+  // public get iFrameHeight(): string {
+  //   // return this.isWidgetRequested ? '400px' : '0px';
+  //   return '400px';
+  // }
 
-  public get isWidgetRequested(): boolean {
-    return this.selectedCast !== null;
-  }
+  // public get isWidgetRequested(): boolean {
+  //   return this.selectedCast !== null;
+  // }
 
 
   public get widgetUrl(): string {
@@ -76,6 +76,10 @@ export class MixcloudComponent implements OnInit {
     return result;
   }
 
+  /**
+   * called by view
+   * @returns url for portrait
+   */
   public get portraitUrl(): string {
     if (this.castAvailable) {
       return this.cloudCastBlob.data[0].user.pictures['medium'];

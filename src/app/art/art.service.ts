@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ArtItem } from './model/ArtItem';
 
+
+/**
+ * @class ArtService
+ * @description (http ) GETS and serves ArtItems
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +17,16 @@ export class ArtService {
 
   public getArtItems(): ArtItem[] {
     if (!this.artItems) {
-      this.artItems = this.getStaticArtItems();
+      this.artItems = this.staticArtItems;
     }
     return this.artItems;
   }
-  getStaticArtItems(): ArtItem[] {
+
+  /**
+   * @method get staticArtItems
+   * @description helper factory method to construct static data
+   */
+  get staticArtItems(): ArtItem[] {
     return [
       {
         title: 't1',

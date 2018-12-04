@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ArtComponent - TheSnooze Portfolio</title>
+    <title>MixcloudService - TheSnooze Portfolio</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -83,21 +83,21 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>ArtComponent Class</h1>
+<h1>MixcloudService Class</h1>
 <div class="box meta">
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_app_art_art.component.ts.html#l5"><code>src\app\art\art.component.ts:5</code></a>
+            Defined in: <a href="../files/src_app_mixcloud_mixcloud.service.ts.html#l4"><code>src\app\mixcloud\mixcloud.service.ts:4</code></a>
         </div>
 
-            Module: <a href="../modules/Art.html">Art</a>
+            Module: <a href="../modules/Mixcloud.html">Mixcloud</a>
 
 </div>
 
 
 <div class="box intro">
-    <p>controller in charge of managing ArtItems</p>
+    <p>Mixcloud connector / service</p>
 
 </div>
 
@@ -118,16 +118,21 @@
 
                     <ul class="index-list methods">
                             <li class="index-item method">
-                                <a href="#method_constructor">constructor</a>
+                                <a href="#method_async getCloudcasts">async getCloudcasts</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_get artItems">get artItems</a>
+                                <a href="#method_async getNextCloudcastBatch">async getNextCloudcastBatch</a>
 
                             </li>
-                            <li class="index-item method">
-                                <a href="#method_ngOnInit">ngOnInit</a>
+                            <li class="index-item method private">
+                                <a href="#method_getEndPointBase">getEndPointBase</a>
 
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_getMetaData">getMetaData</a>
+
+                                    <span class="flag deprecated">deprecated</span>
                             </li>
                     </ul>
                 </div>
@@ -139,17 +144,20 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_constructor" class="method item">
-    <h3 class="name"><code>constructor</code></h3>
+<div id="method_async getCloudcasts" class="method item">
+    <h3 class="name"><code>async getCloudcasts</code></h3>
 
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>artService</code>
+                        <code>limit</code>
                 </li>
             </ul><span class="paren">)</span>
         </div>
 
+        <span class="returns-inline">
+            <span class="type">Promise<any></span>
+        </span>
 
 
 
@@ -160,7 +168,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_art_art.component.ts.html#l20"><code>src\app\art\art.component.ts:20</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.service.ts.html#l52"><code>src\app\mixcloud\mixcloud.service.ts:52</code></a>
         </p>
 
 
@@ -168,7 +176,7 @@
     </div>
 
     <div class="description">
-        <p>injects ArtService</p>
+        <p>via HTTP GET</p>
 
     </div>
 
@@ -177,8 +185,148 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">artService</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <code class="param-name">limit</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>max amount of items collected. default is 100 (soft-limit)</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise<any></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_async getNextCloudcastBatch" class="method item">
+    <h3 class="name"><code>async getNextCloudcastBatch</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>batchUrl</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise<any></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.service.ts.html#l35"><code>src\app\mixcloud\mixcloud.service.ts:35</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>gets consecutive bacth of CloudCasts</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">batchUrl</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise<any></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getEndPointBase" class="method item private">
+    <h3 class="name"><code>getEndPointBase</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>user</code>
+                </li>
+                <li class="arg">
+                        <code>requestName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.service.ts.html#l22"><code>src\app\mixcloud\mixcloud.service.ts:22</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>returns url for Mixcloud API</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">user</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestName</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
 
                     <div class="param-description">
@@ -192,15 +340,13 @@
 
 
 </div>
-<div id="method_get artItems" class="method item">
-    <h3 class="name"><code>get artItems</code></h3>
+<div id="method_getMetaData" class="method item deprecated">
+    <h3 class="name"><code>getMetaData</code></h3>
 
         <span class="paren">()</span>
 
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
 
+        <span class="flag deprecated">deprecated</span>
 
 
 
@@ -210,7 +356,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_art_art.component.ts.html#l36"><code>src\app\art\art.component.ts:36</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.service.ts.html#l79"><code>src\app\mixcloud\mixcloud.service.ts:79</code></a>
         </p>
 
 
@@ -218,46 +364,7 @@
     </div>
 
     <div class="description">
-        <p>called by view</p>
-
-    </div>
-
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                    <p>List of ArtItems</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_ngOnInit" class="method item">
-    <h3 class="name"><code>ngOnInit</code></h3>
-
-        <span class="paren">()</span>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_app_art_art.component.ts.html#l28"><code>src\app\art\art.component.ts:28</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Angular lifecycle method</p>
+        <p>helper method to retrieve metaData.</p>
 
     </div>
 

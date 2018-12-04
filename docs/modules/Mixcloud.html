@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\app\mixcloud\mixcloud.service.ts - TheSnooze Portfolio</title>
+    <title>Mixcloud - TheSnooze Portfolio</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -83,109 +83,49 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src\app\mixcloud\mixcloud.service.ts</h1>
-
-<div class="file">
-    <pre class="code prettyprint linenums">
-import { Injectable, Output, EventEmitter } from &#x27;@angular/core&#x27;;
-import Axios, { AxiosResponse } from &#x27;axios&#x27;;
-
-/**
- * Mixcloud connector / service
- * @module Mixcloud
- * @class MixcloudService
- */
-@Injectable({
-  providedIn: &#x27;root&#x27;
-})
-export class MixcloudService {
-
-  private static USER_THESNOOZE = &#x27;thesnooze&#x27;;
-
-  private static CLOUD_CASTS = &#x27;cloudcasts&#x27;;
-  private static META_DATA = &#x27;?metadata=1&#x27;;
+<h1>Mixcloud Module</h1>
+<div class="box clearfix meta">
 
 
-  constructor() { }
+        <div class="foundat">
+            Defined in: <a href="../files/src_app_mixcloud_mixcloud.service.ts.html#l4"><code>src\app\mixcloud\mixcloud.service.ts:4</code></a>
+        </div>
 
-  /**
-   * returns url for Mixcloud API
-   * @private
-   * @method getEndPointBase
-   * @param {string} user
-   * @param {string} requestName
-   */
-  private static getEndPointBase(user: string, requestName: string): string {
-    return &#x27;https://api.mixcloud.com/&#x27; + user + &#x27;/&#x27; + requestName + &#x27;/&#x27;;
-  }
+</div>
 
 
+<div class="box intro">
+    <p>value object</p>
 
-  /**
-   * gets consecutive bacth of CloudCasts
-   * @method async getNextCloudcastBatch
-   * @param {string} batchUrl
-   * @return {Promise&lt;any&gt;}
-   */
-  public async getNextCloudcastBatch(batchUrl: string): Promise&lt;any&gt; {
-    return Axios.get(batchUrl)
-      .then((response: AxiosResponse&lt;any&gt;) =&gt; {
-        return response.data;
-      })
-      .catch(error =&gt; {
-        console.log(&#x27;error: &#x27; + error);
-        return null;
-      });
-  }
+</div>
 
-  /**
-   * via HTTP GET
-   * @method async getCloudcasts
-   * @param {number} limit - max amount of items collected. default is 100 (soft-limit)
-   * @return {Promise&lt;any&gt;}
-   */
-  public async getCloudcasts(limit: number = 0): Promise&lt;any&gt; {
-    let endpoint = MixcloudService.getEndPointBase(MixcloudService.USER_THESNOOZE, MixcloudService.CLOUD_CASTS);
-    // batches contain max 100 cloudcasts. load in batches of a 100
-    if (limit === 0) {
-      // const metaData = await this.getMetaData();
-      // limit = metaData.cloudcast_count;
-      limit = 100;
-    }
 
-    endpoint += &#x27;?limit=&#x27; + limit;
+<div class="yui3-g">
+    <div class="yui3-u-1-2">
+            <p>This module provides the following classes:</p>
 
-    return Axios.get(endpoint)
-      .then((response: AxiosResponse&lt;any&gt;) =&gt; {
-        return response.data;
-      })
-      .catch(error =&gt; {
-        console.log(&#x27;error: &#x27; + error);
-        return null;
-      });
-  }
+            <ul class="module-classes">
+                <li class="module-class">
+                    <a href="../classes/Cloudcast.html">
+                        Cloudcast
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/MixcloudComponent.html">
+                        MixcloudComponent
+                    </a>
+                </li>
+                <li class="module-class">
+                    <a href="../classes/MixcloudService.html">
+                        MixcloudService
+                    </a>
+                </li>
+            </ul>
+    </div>
 
-  /**
-   * helper method to retrieve metaData.
-   * @method getMetaData
-   * @deprecated
-   */
-  private getMetaData(): Promise&lt;any&gt; {
-    const endpoint = MixcloudService.getEndPointBase(MixcloudService.USER_THESNOOZE, MixcloudService.META_DATA);
 
-    return Axios.get(endpoint)
-      .then((response: AxiosResponse&lt;any&gt;) =&gt; {
-        return response.data;
-
-      })
-      .catch(error =&gt; {
-        console.log(&#x27;error: &#x27; + error);
-        return null;
-      });
-  }
-}
-
-    </pre>
+    <div class="yui3-u-1-2">
+    </div>
 </div>
                     </div>
                 </div>

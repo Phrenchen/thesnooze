@@ -6,6 +6,17 @@
         "url": "https://thesnooze.herokuapp.com/"
     },
     "files": {
+        "src\\app\\art\\model\\ArtItem.ts": {
+            "name": "src\\app\\art\\model\\ArtItem.ts",
+            "modules": {
+                "Art": 1
+            },
+            "classes": {
+                "ArtItem": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\app\\art\\art.component.ts": {
             "name": "src\\app\\art\\art.component.ts",
             "modules": {},
@@ -15,8 +26,37 @@
             "fors": {},
             "namespaces": {}
         },
+        "src\\app\\art\\art.service.ts": {
+            "name": "src\\app\\art\\art.service.ts",
+            "modules": {},
+            "classes": {
+                "ArtService": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\mixcloud\\model\\Cloudcast.ts": {
+            "name": "src\\app\\mixcloud\\model\\Cloudcast.ts",
+            "modules": {
+                "Mixcloud": 1
+            },
+            "classes": {
+                "Cloudcast": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src\\app\\mixcloud\\mixcloud.component.ts": {
             "name": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "modules": {},
+            "classes": {
+                "MixcloudComponent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\mixcloud\\mixcloud.module.ts": {
+            "name": "src\\app\\mixcloud\\mixcloud.module.ts",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -25,7 +65,9 @@
         "src\\app\\mixcloud\\mixcloud.service.ts": {
             "name": "src\\app\\mixcloud\\mixcloud.service.ts",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "MixcloudService": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -51,8 +93,55 @@
             "namespaces": {}
         }
     },
-    "modules": {},
+    "modules": {
+        "Art": {
+            "name": "Art",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "ArtItem": 1,
+                "ArtComponent": 1,
+                "ArtService": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\app\\art\\art.service.ts",
+            "line": 5,
+            "description": "value object"
+        },
+        "Mixcloud": {
+            "name": "Mixcloud",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Cloudcast": 1,
+                "MixcloudComponent": 1,
+                "MixcloudService": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\app\\mixcloud\\mixcloud.service.ts",
+            "line": 4,
+            "description": "value object"
+        }
+    },
     "classes": {
+        "ArtItem": {
+            "name": "ArtItem",
+            "shortname": "ArtItem",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Art",
+            "namespace": "",
+            "file": "src\\app\\art\\model\\ArtItem.ts",
+            "line": 1,
+            "description": "value object"
+        },
         "ArtComponent": {
             "name": "ArtComponent",
             "shortname": "ArtComponent",
@@ -61,138 +150,449 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
+            "module": "Art",
+            "namespace": "",
             "file": "src\\app\\art\\art.component.ts",
-            "line": 5
+            "line": 5,
+            "description": "controller in charge of managing ArtItems"
+        },
+        "ArtService": {
+            "name": "ArtService",
+            "shortname": "ArtService",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Art",
+            "namespace": "",
+            "file": "src\\app\\art\\art.service.ts",
+            "line": 5,
+            "description": "(http ) GETS and serves ArtItems"
+        },
+        "Cloudcast": {
+            "name": "Cloudcast",
+            "shortname": "Cloudcast",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Mixcloud",
+            "namespace": "",
+            "file": "src\\app\\mixcloud\\model\\Cloudcast.ts",
+            "line": 1,
+            "description": "value object"
+        },
+        "MixcloudComponent": {
+            "name": "MixcloudComponent",
+            "shortname": "MixcloudComponent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Mixcloud",
+            "namespace": "",
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 19,
+            "description": "controller in charge of handling lists of Cloudcasts"
+        },
+        "MixcloudService": {
+            "name": "MixcloudService",
+            "shortname": "MixcloudService",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Mixcloud",
+            "namespace": "",
+            "file": "src\\app\\mixcloud\\mixcloud.service.ts",
+            "line": 4,
+            "description": "Mixcloud connector / service"
         }
     },
     "elements": {},
     "classitems": [
         {
             "file": "src\\app\\art\\art.component.ts",
-            "line": 18,
-            "is_constructor": 1,
+            "line": 20,
+            "itemtype": "method",
+            "name": "constructor",
+            "description": "injects ArtService",
             "params": [
                 {
                     "name": "artService",
                     "description": ""
                 }
             ],
-            "class": "ArtComponent"
+            "type": "ArtService",
+            "class": "ArtComponent",
+            "module": "Art"
+        },
+        {
+            "file": "src\\app\\art\\art.component.ts",
+            "line": 28,
+            "itemtype": "method",
+            "name": "ngOnInit",
+            "description": "Angular lifecycle method",
+            "class": "ArtComponent",
+            "module": "Art"
+        },
+        {
+            "file": "src\\app\\art\\art.component.ts",
+            "line": 36,
+            "itemtype": "method",
+            "name": "get artItems",
+            "description": "called by view",
+            "return": {
+                "description": "List of ArtItems"
+            },
+            "class": "ArtComponent",
+            "module": "Art"
+        },
+        {
+            "file": "src\\app\\art\\art.service.ts",
+            "line": 19,
+            "description": "returns 1 list of ArtItems",
+            "itemtype": "method",
+            "name": "getArtItems",
+            "return": {
+                "description": "",
+                "type": "Array<ArtItem>"
+            },
+            "class": "ArtService",
+            "module": "Art"
+        },
+        {
+            "file": "src\\app\\art\\art.service.ts",
+            "line": 31,
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "get staticArtItems",
+            "description": "helper factory method to construct static data",
+            "return": {
+                "description": "",
+                "type": "ArtItem[]"
+            },
+            "class": "ArtService",
+            "module": "Art"
+        },
+        {
+            "file": "src\\app\\art\\art.service.ts",
+            "line": 73,
+            "description": "empty default constructor",
+            "itemtype": "method",
+            "name": "constructor",
+            "class": "ArtService",
+            "module": "Art"
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 79,
-            "description": "called by view",
-            "return": {
-                "description": "url for portrait"
-            },
-            "class": ""
-        },
-        {
-            "file": "src\\app\\mixcloud\\mixcloud.service.ts",
-            "line": 4,
-            "description": "Mixcloud connector / service",
-            "class": ""
-        },
-        {
-            "file": "src\\app\\mixcloud\\mixcloud.service.ts",
-            "line": 37,
+            "line": 43,
+            "description": "injecting MixcloudService",
             "itemtype": "method",
-            "name": "gets cloudcasts via http",
+            "name": "constructor",
+            "params": [
+                {
+                    "name": "mixcloudService",
+                    "description": "",
+                    "type": "MixcloudService"
+                }
+            ],
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 51,
+            "description": "Angular lifecycle method\nadd widget config enums into config-array",
+            "itemtype": "method",
+            "name": "ngOnInit",
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 70,
+            "description": "called by view",
+            "itemtype": "method",
+            "name": "get widgetUrl",
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 90,
+            "description": "called by view",
+            "itemtype": "method",
+            "name": "get portraitUrl",
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 102,
+            "description": "helper, used for early outs",
+            "itemtype": "method",
+            "name": "get castAvailable",
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 111,
+            "description": "event handling. set source for widget. bound to view",
+            "itemtype": "method",
+            "name": "playCast",
+            "params": [
+                {
+                    "name": "source",
+                    "description": "for widget",
+                    "type": "String"
+                }
+            ],
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 124,
+            "description": "event handling. set selected cast (user clicked on grid-item). bound to view",
+            "itemtype": "method",
+            "name": "onImageClicked",
+            "params": [
+                {
+                    "name": "selectedCloudcast",
+                    "description": "for overlay",
+                    "type": "Cloudcast"
+                }
+            ],
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 134,
+            "description": "event handling. de-select cast. bound to view",
+            "itemtype": "method",
+            "name": "closeOverlay",
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 142,
+            "description": "prevents (re-)adding (null) items",
+            "itemtype": "method",
+            "name": "safeAdd",
+            "params": [
+                {
+                    "name": "collection",
+                    "description": "",
+                    "type": "Array<any>"
+                },
+                {
+                    "name": "item",
+                    "description": "",
+                    "type": "Any"
+                }
+            ],
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 158,
+            "description": "triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API",
+            "itemtype": "method",
+            "name": "async getCloudcasts",
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
+            "line": 194,
+            "description": "extracts source url for widget for a specific or a random cast",
+            "itemtype": "method",
+            "name": "getWidgetSource",
+            "params": [
+                {
+                    "name": "cloudCastBlob",
+                    "description": "",
+                    "type": "CloudcastBlob"
+                },
+                {
+                    "name": "-1",
+                    "description": "- castId",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "- sourceUrl",
+                "type": "String"
+            },
+            "class": "MixcloudComponent",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.service.ts",
+            "line": 22,
+            "description": "returns url for Mixcloud API",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getEndPointBase",
+            "params": [
+                {
+                    "name": "user",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "requestName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "MixcloudService",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.service.ts",
+            "line": 35,
+            "description": "gets consecutive bacth of CloudCasts",
+            "itemtype": "method",
+            "name": "async getNextCloudcastBatch",
+            "params": [
+                {
+                    "name": "batchUrl",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Promise<any>"
+            },
+            "class": "MixcloudService",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.service.ts",
+            "line": 52,
+            "description": "via HTTP GET",
+            "itemtype": "method",
+            "name": "async getCloudcasts",
             "params": [
                 {
                     "name": "limit",
-                    "description": "- max amount of items collected. default is 100 (soft-limit)"
+                    "description": "- max amount of items collected. default is 100 (soft-limit)",
+                    "type": "Number"
                 }
             ],
-            "class": ""
+            "return": {
+                "description": "",
+                "type": "Promise<any>"
+            },
+            "class": "MixcloudService",
+            "module": "Mixcloud"
+        },
+        {
+            "file": "src\\app\\mixcloud\\mixcloud.service.ts",
+            "line": 79,
+            "description": "helper method to retrieve metaData.",
+            "itemtype": "method",
+            "name": "getMetaData",
+            "deprecated": true,
+            "class": "MixcloudService",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\app\\app.component.ts",
             "line": 21,
             "description": "initializes service worker",
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\app\\app.module.ts",
             "line": 14,
             "description": "AppModule description",
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 1,
             "description": "This file includes polyfills needed by Angular and is loaded before the app.\nYou can add your own extra polyfills to this file.\n\nThis file is divided into 2 sections:\n  1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n  2. Application imports. Files imported after ZoneJS that should be loaded before your main\n     file.\n\nThe current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\nautomatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),\nEdge >= 13 on the desktop, and iOS 10 and Chrome on mobile.\n\nLearn more in https://angular.io/docs/ts/latest/guide/browser-support.html",
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 17,
             "description": "BROWSER POLYFILLS",
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 21,
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 37,
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 40,
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 44,
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 49,
             "description": "Web Animations `@angular/platform-browser/animations`\nOnly required if AnimationBuilder is used within the application and using IE/Edge or Safari.\nStandard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).",
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 56,
             "description": "By default, zone.js will patch all possible macroTask and DomEvents\nuser can disable parts of macroTask/DomEvents patch by setting following flags",
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 71,
             "description": "Zone JS is required by default for Angular itself.",
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 78,
             "description": "APPLICATION IMPORTS",
-            "class": ""
+            "class": "",
+            "module": "Mixcloud"
         }
     ],
     "warnings": [
-        {
-            "message": "replacing incorrect tag: returns with return",
-            "line": " src\\app\\mixcloud\\mixcloud.component.ts:79"
-        },
-        {
-            "message": "Missing item type",
-            "line": " src\\app\\art\\art.component.ts:18"
-        },
-        {
-            "message": "Missing item type\ncalled by view",
-            "line": " src\\app\\mixcloud\\mixcloud.component.ts:79"
-        },
-        {
-            "message": "Missing item type\nMixcloud connector / service",
-            "line": " src\\app\\mixcloud\\mixcloud.service.ts:4"
-        },
         {
             "message": "Missing item type\ninitializes service worker",
             "line": " src\\app\\app.component.ts:21"

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MixcloudComponent - TheSnooze Portfolio</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="TheSnooze Portfolio" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/ArtComponent.html">ArtComponent</a></li>
+                                <li><a href="../classes/ArtItem.html">ArtItem</a></li>
+                                <li><a href="../classes/ArtService.html">ArtService</a></li>
+                                <li><a href="../classes/Cloudcast.html">Cloudcast</a></li>
+                                <li><a href="../classes/MixcloudComponent.html">MixcloudComponent</a></li>
+                                <li><a href="../classes/MixcloudService.html">MixcloudService</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/Art.html">Art</a></li>
+                                <li><a href="../modules/Mixcloud.html">Mixcloud</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>MixcloudComponent Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l19"><code>src\app\mixcloud\mixcloud.component.ts:19</code></a>
+        </div>
+
+            Module: <a href="../modules/Mixcloud.html">Mixcloud</a>
+
+</div>
+
+
+<div class="box intro">
+    <p>controller in charge of handling lists of Cloudcasts</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_async getCloudcasts">async getCloudcasts</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_closeOverlay">closeOverlay</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_constructor">constructor</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_get castAvailable">get castAvailable</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_get portraitUrl">get portraitUrl</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_get widgetUrl">get widgetUrl</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getWidgetSource">getWidgetSource</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_ngOnInit">ngOnInit</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_onImageClicked">onImageClicked</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_playCast">playCast</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_safeAdd">safeAdd</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_async getCloudcasts" class="method item">
+    <h3 class="name"><code>async getCloudcasts</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l158"><code>src\app\mixcloud\mixcloud.component.ts:158</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_closeOverlay" class="method item">
+    <h3 class="name"><code>closeOverlay</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l134"><code>src\app\mixcloud\mixcloud.component.ts:134</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>event handling. de-select cast. bound to view</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_constructor" class="method item">
+    <h3 class="name"><code>constructor</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>mixcloudService</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l43"><code>src\app\mixcloud\mixcloud.component.ts:43</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>injecting MixcloudService</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">mixcloudService</code>
+                        <span class="type"><a href="../classes/MixcloudService.html" class="crosslink">MixcloudService</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_get castAvailable" class="method item">
+    <h3 class="name"><code>get castAvailable</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l102"><code>src\app\mixcloud\mixcloud.component.ts:102</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>helper, used for early outs</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_get portraitUrl" class="method item">
+    <h3 class="name"><code>get portraitUrl</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l90"><code>src\app\mixcloud\mixcloud.component.ts:90</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>called by view</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_get widgetUrl" class="method item">
+    <h3 class="name"><code>get widgetUrl</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l70"><code>src\app\mixcloud\mixcloud.component.ts:70</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>called by view</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_getWidgetSource" class="method item">
+    <h3 class="name"><code>getWidgetSource</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>cloudCastBlob</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[-1]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l194"><code>src\app\mixcloud\mixcloud.component.ts:194</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>extracts source url for widget for a specific or a random cast</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">cloudCastBlob</code>
+                        <span class="type">CloudcastBlob</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[-1]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>castId</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
+                    <ul>
+<li>sourceUrl</li>
+</ul>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_ngOnInit" class="method item">
+    <h3 class="name"><code>ngOnInit</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l51"><code>src\app\mixcloud\mixcloud.component.ts:51</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Angular lifecycle method
+add widget config enums into config-array</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_onImageClicked" class="method item">
+    <h3 class="name"><code>onImageClicked</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>selectedCloudcast</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l124"><code>src\app\mixcloud\mixcloud.component.ts:124</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>event handling. set selected cast (user clicked on grid-item). bound to view</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">selectedCloudcast</code>
+                        <span class="type"><a href="../classes/Cloudcast.html" class="crosslink">Cloudcast</a></span>
+
+
+                    <div class="param-description">
+                        <p>for overlay</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_playCast" class="method item">
+    <h3 class="name"><code>playCast</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>source</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l111"><code>src\app\mixcloud\mixcloud.component.ts:111</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>event handling. set source for widget. bound to view</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">source</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>for widget</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_safeAdd" class="method item">
+    <h3 class="name"><code>safeAdd</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>collection</code>
+                </li>
+                <li class="arg">
+                        <code>item</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l142"><code>src\app\mixcloud\mixcloud.component.ts:142</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>prevents (re-)adding (null) items</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">collection</code>
+                        <span class="type">Array<any></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">item</code>
+                        <span class="type">Any</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

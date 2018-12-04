@@ -1,10 +1,29 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "ArtComponent"
+        "ArtComponent",
+        "ArtItem",
+        "ArtService",
+        "Cloudcast",
+        "MixcloudComponent",
+        "MixcloudService"
     ],
-    "modules": [],
-    "allModules": [],
+    "modules": [
+        "Art",
+        "Mixcloud"
+    ],
+    "allModules": [
+        {
+            "displayName": "Art",
+            "name": "Art",
+            "description": "value object"
+        },
+        {
+            "displayName": "Mixcloud",
+            "name": "Mixcloud",
+            "description": "value object"
+        }
+    ],
     "elements": []
 } };
 });

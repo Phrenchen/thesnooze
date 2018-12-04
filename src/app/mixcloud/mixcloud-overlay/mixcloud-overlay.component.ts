@@ -2,6 +2,11 @@ import { Component, OnInit, Input, AfterViewInit, Output, EventEmitter } from '@
 import { Cloudcast } from '../model/Cloudcast';
 import { MixcloudService } from '../mixcloud.service';
 
+/**
+ * detail view for 1 cast. switch widget source via play-buttons
+ * @module Mixcloud
+ * @class MixcloudOverlayComponent
+ */
 @Component({
   selector: 'app-mixcloud-overlay',
   templateUrl: './mixcloud-overlay.component.html',

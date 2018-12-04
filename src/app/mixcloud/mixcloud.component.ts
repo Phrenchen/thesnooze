@@ -141,6 +141,7 @@ export class MixcloudComponent implements OnInit {
 
   /**
    * prevents (re-)adding (null) items
+   * @private
    * @method safeAdd
    * @param {Array<any>} collection
    * @param {any} item
@@ -157,6 +158,7 @@ export class MixcloudComponent implements OnInit {
 
   /**
    * triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API
+   * @private
    * @method async getCloudcasts
    * 
    */
@@ -193,6 +195,7 @@ export class MixcloudComponent implements OnInit {
 
   /**
    * extracts source url for widget for a specific or a random cast
+   * @private
    * @method getWidgetSource
    * @param {CloudcastBlob} cloudCastBlob
    * @param {number} [-1] - castId

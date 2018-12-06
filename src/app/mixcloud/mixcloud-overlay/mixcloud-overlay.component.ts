@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { Cloudcast } from '../model/Cloudcast';
+import { Item } from '../model/Cloudcast';
 import { MixcloudService } from '../mixcloud.service';
 
 /**
@@ -14,7 +14,7 @@ import { MixcloudService } from '../mixcloud.service';
 })
 export class MixcloudOverlayComponent implements OnInit {
 
-  @Input() cloudcast: Cloudcast;
+  @Input() cloudcast: Item;
 
   @Output() closeMe: EventEmitter<any> = new EventEmitter<any>();
   @Output() playMe: EventEmitter<string> = new EventEmitter<string>();

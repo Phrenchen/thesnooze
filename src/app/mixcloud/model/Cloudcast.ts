@@ -4,12 +4,19 @@
  * @class Cloudcast
  */
 
-export interface Cloudcast {
-    tags: Array<string>;
-    play_count: number;
-    user: MixCloudUser;
+export interface Item {
+    id: string;
     key: string;
     created_time: string;       // date
+    
+    user: MixCloudUser;
+    audio_length: number;
+}
+
+export interface Cloudcast extends Item {
+    tags: Array<string>;
+    play_count: number;
+    
     slug: string;
     favorite_count: number;
     listener_count: number;
@@ -19,19 +26,25 @@ export interface Cloudcast {
     repost_count: number;
     updated_time: string;       // date
     comment_count: number;
-    audio_length: number;
 }
 
-export interface CloudcastBlob {
+export interface ItemBlob {
+    data: Array<Item>;
+
+}
+
+export interface CloudcastBlob extends ItemBlob {
     name: string;
-    data: Array<Cloudcast>;
     paging: Object;
 }
 
-export interface MixCloudUser {
+export interface User {
+    pictures: Object;
+}
+
+export interface MixCloudUser extends User {
     key: string;
     name: string;
-    pictures: Object;
     url: string;
     username: string;
 }

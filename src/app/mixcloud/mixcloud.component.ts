@@ -1,8 +1,6 @@
-import { Component, OnInit, SecurityContext, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MixcloudService } from './mixcloud.service';
-import { Cloudcast, CloudcastBlob } from './model/Cloudcast';
-import { DomSanitizer } from '@angular/platform-browser';
-import { DomSanitizerImpl, SafeUrl } from '@angular/platform-browser/src/security/dom_sanitization_service';
+import { Item, CloudcastBlob } from './model/Cloudcast';
 import { MathHelper } from '../shared/MathHelper';
 
 
@@ -17,7 +15,9 @@ enum WidgetConfig {
 }
 
 /**
- * controller in charge of handling lists of Cloudcasts
+ * controller in charge of handling lists of Cloudcasts.
+ * * grid of item-cards
+ * * click on item to open overlay with detail view
  * @module Mixcloud
  * @class MixcloudComponent
  */
@@ -33,7 +33,7 @@ export class MixcloudComponent implements OnInit {
 
   public cloudCastBlob: CloudcastBlob;
 
-  public selectedCast: Cloudcast = null;
+  public selectedCast: Item = null;
 
   private widgetSource: string;
 
@@ -124,15 +124,15 @@ export class MixcloudComponent implements OnInit {
   /**
    * event handling. set selected cast (user clicked on grid-item). bound to view
    * @method onImageClicked
-   * @param {Cloudcast} selectedCloudcast for overlay
+   * @param {Item} selectedCloudcast for overlay
    */
-  public onImageClicked(selectedCloudcast: Cloudcast): void {
+  public onImageClicked(selectedCloudcast: Item): void {
     console.log(selectedCloudcast);
     this.selectedCast = selectedCloudcast;
   }
 
   /**
-   * event handling. de-select cast. bound to view
+   * event handling. closes the detail-overview by de-selecting the active cast
    * @method closeOverlay
    */
   public closeOverlay(): void {
@@ -160,7 +160,6 @@ export class MixcloudComponent implements OnInit {
    * triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API
    * @private
    * @method async getCloudcasts
-   * 
    */
   private async getCloudcasts() {
     if (this.cloudCastBlob) {

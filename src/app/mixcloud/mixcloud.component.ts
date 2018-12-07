@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MixcloudService } from './mixcloud.service';
-import { Item, CloudcastBlob } from './model/Cloudcast';
+import { Item, CloudcastUserBlob } from './model/Interfaces';
 import { MathHelper } from '../shared/MathHelper';
 
 
@@ -31,7 +31,7 @@ export class MixcloudComponent implements OnInit {
 
   private static WIDGET_BASE_URL = 'https://www.mixcloud.com/widget/iframe/?feed=';
 
-  public cloudCastBlob: CloudcastBlob;
+  public cloudCastBlob: CloudcastUserBlob;
 
   public selectedCast: Item = null;
 
@@ -196,11 +196,11 @@ export class MixcloudComponent implements OnInit {
    * extracts source url for widget for a specific or a random cast
    * @private
    * @method getWidgetSource
-   * @param {CloudcastBlob} cloudCastBlob
+   * @param {CloudcastUserBlob} cloudCastBlob
    * @param {number} [-1] - castId
    * @return {string} - sourceUrl
    */
-  private getWidgetSource(cloudCastBlob: CloudcastBlob, castId: number = -1): string {
+  private getWidgetSource(cloudCastBlob: CloudcastUserBlob, castId: number = -1): string {
     try {
       if (castId === -1) {
         // select random cast

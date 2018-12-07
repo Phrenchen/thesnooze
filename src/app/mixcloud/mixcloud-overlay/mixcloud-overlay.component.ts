@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { Item } from '../model/Cloudcast';
+import { Item } from '../model/Interfaces';
 import { MixcloudService } from '../mixcloud.service';
 
 /**

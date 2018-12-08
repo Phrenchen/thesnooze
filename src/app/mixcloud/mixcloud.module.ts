@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { MixcloudRoutingModule } from './mixcloud-routing.module';
 import { MixcloudComponent } from './mixcloud.component';
-import { MixcloudOverlayComponent } from './mixcloud-overlay/mixcloud-overlay.component';
-import { SafePipe } from '../app.component';
+import { SharedModule } from '../shared/shared.module';
+import { WidgetUrlPipePipe } from './pipes/widget-url-pipe.pipe';
+
 
 /**
  * contains components to display shows in a grid, an audio player (Mixcloud widget) and has a detail view as overlay.
@@ -13,12 +14,12 @@ import { SafePipe } from '../app.component';
 @NgModule({
   imports: [
     CommonModule,
-    MixcloudRoutingModule
+    MixcloudRoutingModule,
+    SharedModule
   ],
   declarations: [
     MixcloudComponent,
-    MixcloudOverlayComponent,
-    SafePipe
+    WidgetUrlPipePipe
   ]
 })
 export class MixcloudModule { }

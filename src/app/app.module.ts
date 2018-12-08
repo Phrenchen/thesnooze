@@ -10,6 +10,7 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
 import { AboutComponent } from './about/about.component';
 import { ArtComponent } from './art/art.component';
 import { ItemSelectorComponent } from './art/item-selector/item-selector.component';
+import { SharedModule } from './shared/shared.module';
 
 /**
  * AppModule description
@@ -27,7 +28,8 @@ import { ItemSelectorComponent } from './art/item-selector/item-selector.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MixcloudModule
+    MixcloudModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

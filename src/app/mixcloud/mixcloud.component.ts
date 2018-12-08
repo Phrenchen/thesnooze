@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MixcloudService } from './mixcloud.service';
-import { Item, CloudcastUserBlob } from './model/Interfaces';
+import { CloudcastUserBlob } from './model/Interfaces';
 import { MathHelper } from '../shared/MathHelper';
-
+import { Item } from '../shared/gallery/model/Interfaces';
 
 
 enum WidgetConfig {
@@ -29,15 +29,15 @@ enum WidgetConfig {
 })
 export class MixcloudComponent implements OnInit {
 
-  private static WIDGET_BASE_URL = 'https://www.mixcloud.com/widget/iframe/?feed=';
+  public static WIDGET_BASE_URL = 'https://www.mixcloud.com/widget/iframe/?feed=';
 
   public cloudCastBlob: CloudcastUserBlob;
 
-  public selectedCast: Item = null;
+  public selectedItem: Item = null;
 
   private widgetSource: string;
 
-  private widgetConfig: Array<WidgetConfig> = new Array<WidgetConfig>();
+  public widgetConfig: Array<WidgetConfig> = new Array<WidgetConfig>();
 
 
   /**
@@ -54,7 +54,7 @@ export class MixcloudComponent implements OnInit {
    * @method ngOnInit
    */
   ngOnInit() {
-    if (!this.selectedCast) {
+    if (!this.selectedItem) {
       this.getCloudcasts();
 
     }
@@ -108,53 +108,25 @@ export class MixcloudComponent implements OnInit {
   }
 
 
-  /**
-   * event handling. set source for widget. bound to view
-   * @method playCast
-   * @param {string} source for widget
-   */
-  public playCast(castSource: string): void {
-    if (castSource && castSource.length > 0) {
-      this.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
-      this.widgetSource = castSource;
-      // console.log('playing ' + this.widgetSource);
-    }
-  }
+
 
   /**
    * event handling. set selected cast (user clicked on grid-item). bound to view
    * @method onImageClicked
    * @param {Item} selectedCloudcast for overlay
    */
-  public onImageClicked(selectedCloudcast: Item): void {
-    console.log(selectedCloudcast);
-    this.selectedCast = selectedCloudcast;
+  // public onImageClicked(selectedCloudcast: Item): void {
+  //   console.log(selectedCloudcast);
+  //   this.selectedItem = selectedCloudcast;
+  // }
+  public doActionOnSelectedItem(item: Item) {
+    console.log('do action on selected item: ' + item);
   }
 
-  /**
-   * event handling. closes the detail-overview by de-selecting the active cast
-   * @method closeOverlay
-   */
-  public closeOverlay(): void {
-    this.selectedCast = null;
-  }
 
-  /**
-   * prevents (re-)adding (null) items
-   * @private
-   * @method safeAdd
-   * @param {Array<any>} collection
-   * @param {any} item
-   */
-  private safeAdd(collection: Array<any>, item: any): void {
-    if (!collection || !item) {
-      return;
-    }
 
-    if (collection.indexOf(item) < 0) {
-      collection.push(item);
-    }
-  }
+
+
 
   /**
    * triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API

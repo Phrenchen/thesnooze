@@ -1,9 +1,9 @@
-<div  >
+<div *ngIf="item" >
   <div *ngIf="isLoading" class="centered-overlay">Loading&#8230;</div>
 
   <div *ngIf="!isLoading" class="centered-overlay" >
     
-    <h3>{{cloudcast.name}}</h3>
+    <h3>{{item.name}}</h3>
     <section class="play-count">
       <span>
           <p>recorded {{createdDate}}</p>
@@ -18,14 +18,14 @@
                 <span class="stat-icon">
                   <i class="fas fa-headphones-alt"></i>
                 </span>
-                <span>{{cloudcast.play_count}}</span>
+                <span>{{item.play_count}}</span>
               </span>
 
               <span class="stat icon">
                 <span class="stat-icon">
                   <i class="fas fa-thumbs-up"></i>
                 </span>
-                <span>{{cloudcast.favorite_count}}</span>
+                <span>{{item.favorite_count}}</span>
               </span>
 
               <button (click)="selectForWidget()">
@@ -35,7 +35,7 @@
 
         </span>
     </section>
-    <img [src]="cloudcast.pictures.extra_large"
+    <img [src]="item.pictures.extra_large"
     (click)="closeOverlay()">
     
   </div>  

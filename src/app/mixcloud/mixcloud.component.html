@@ -5,10 +5,17 @@
     <img [src]="portraitUrl" class="header-portrait">
   </div>
 
-  <div class="widget-grid">
+  <div
+  class="widget-grid">
     <iframe id="mixcloud-widget" width="100%" [src]="widgetUrl | safe" frameborder="0" allow="autoplay"></iframe>
-  </div>
+    <!-- <iframe id="mixcloud-widget" [src]="selectedCast | widgetUrlPipe:widgetConfig | safe" frameborder="0" allow="autoplay" width="100%"></iframe> -->
+</div>
   
+  <app-gallery
+    [blob]="cloudCastBlob"
+    (doAction)="doActionOnSelectedItem(item)"
+    ></app-gallery>
+<!--   
   <div class="cloudcast-grid">
     <div *ngFor="let cloudcast of cloudCastBlob.data" class="cloudcast" (click)="onImageClicked(cloudcast)">
       <img class="cast-thumbnail" [src]="cloudcast.pictures.medium" >
@@ -20,7 +27,7 @@
     [cloudcast]="selectedCast"
     (closeMe)="closeOverlay();"
     (playMe)="playCast($event)"
-  ></app-mixcloud-overlay>
+  ></app-mixcloud-overlay> -->
 
   
 </div>

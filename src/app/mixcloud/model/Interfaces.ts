@@ -1,42 +1,5 @@
-/**
- * basic class to handle items as entities
- * @module Mixcloud
- * @class Item
- */
+import { Item, UserBlob, User } from 'src/app/shared/gallery/model/Interfaces';
 
-export class Item {
-    /**
-     * unique identifier
-     * @attribute {string} id
-     * */
-    id: string;
-
-    /**
-     * source url for Mixcloud widget
-     * * TODO! MOVE THIS TO CloudcastItem!
-     * @attribute {string} key
-     * */
-    key: string;
-
-    /**
-     * creation-date-string - use for Date
-     * @attribute {string} created_time
-     */
-    created_time: string;       // date
-
-    /**
-     * contains avatar url etc.
-     * @attribute {User} user
-     */
-    user: User;
-
-    /**
-     * use for Date
-     * * TODO! MOVE THIS TO CloudcastItem!
-     * @attribute audio_length
-     */
-    audio_length: number;
-}
 
 /**
  * * concrete item variant
@@ -60,15 +23,7 @@ export class CloudcastItem extends Item {
     comment_count: number;
 }
 
-/**
- * base to handle user-blobs as entities
- * @module Mixcloud
- * @class UserBlob
- */
-export class UserBlob {
-    data: Array<Item>;
 
-}
 
 /**
  * * concrete variant of UserBlob
@@ -84,14 +39,7 @@ export class CloudcastUserBlob extends UserBlob {
     paging: Object;
 }
 
-/**
- * base to handle users as entities
- * @module Mixcloud
- * @class User
- */
-export class User {
-    pictures: Object;
-}
+
 
 /**
  * * concrete variant of User

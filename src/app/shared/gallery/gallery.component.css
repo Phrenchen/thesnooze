@@ -1,0 +1,47 @@
+/* shows */
+.item-gridgrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 5px;
+    width: 100%;
+    /* align-content: center; */
+    align-self: center;
+    /* align-items: center; */
+    /* justify-items: center; */
+    
+}
+
+.cloudcast{
+    display: grid;
+
+
+    justify-items: center;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+
+    /* border: 1px solid black;
+    border-radius: 10px; */
+}
+
+.cast-thumbnail{
+    margin-top: 16px;
+}
+
+img{
+    max-width: 100px;
+    max-height: 100px;
+    /* margin-bottom: 10px; */
+}
+
+h2{
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+h4{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+}

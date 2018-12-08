@@ -41,15 +41,24 @@
                                 <li><a href="../classes/ArtComponent.html">ArtComponent</a></li>
                                 <li><a href="../classes/ArtItem.html">ArtItem</a></li>
                                 <li><a href="../classes/ArtService.html">ArtService</a></li>
-                                <li><a href="../classes/Cloudcast.html">Cloudcast</a></li>
+                                <li><a href="../classes/CloudcastItem.html">CloudcastItem</a></li>
+                                <li><a href="../classes/CloudcastUserBlob.html">CloudcastUserBlob</a></li>
+                                <li><a href="../classes/GalleryComponent.html">GalleryComponent</a></li>
+                                <li><a href="../classes/Item.html">Item</a></li>
+                                <li><a href="../classes/MenuComponent.html">MenuComponent</a></li>
                                 <li><a href="../classes/MixcloudComponent.html">MixcloudComponent</a></li>
                                 <li><a href="../classes/MixcloudService.html">MixcloudService</a></li>
+                                <li><a href="../classes/MixcloudUser.html">MixcloudUser</a></li>
+                                <li><a href="../classes/User.html">User</a></li>
+                                <li><a href="../classes/UserBlob.html">UserBlob</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/app.html">app</a></li>
                                 <li><a href="../modules/Art.html">Art</a></li>
                                 <li><a href="../modules/Mixcloud.html">Mixcloud</a></li>
+                                <li><a href="../modules/shared.html">shared</a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,6 +108,7 @@ import { PageHeaderComponent } from &#x27;./components/page-header/page-header.c
 import { AboutComponent } from &#x27;./about/about.component&#x27;;
 import { ArtComponent } from &#x27;./art/art.component&#x27;;
 import { ItemSelectorComponent } from &#x27;./art/item-selector/item-selector.component&#x27;;
+import { SharedModule } from &#x27;./shared/shared.module&#x27;;
 
 /**
  * AppModule description
@@ -116,7 +126,8 @@ import { ItemSelectorComponent } from &#x27;./art/item-selector/item-selector.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MixcloudModule
+    MixcloudModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

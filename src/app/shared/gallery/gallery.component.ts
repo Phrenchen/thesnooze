@@ -1,6 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserBlob, Item } from './model/Interfaces';
 
+/**
+ * @class GalleryComponent
+ * 
+ */
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',

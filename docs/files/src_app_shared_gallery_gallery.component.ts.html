@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\app\app.component.ts - TheSnooze Portfolio</title>
+    <title>src\app\shared\gallery\gallery.component.ts - TheSnooze Portfolio</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -92,42 +92,54 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src\app\app.component.ts</h1>
+<h1 class="file-heading">File: src\app\shared\gallery\gallery.component.ts</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
+import { Component, OnInit, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { UserBlob, Item } from &#x27;./model/Interfaces&#x27;;
 
-import { Component } from &#x27;@angular/core&#x27;;
-
-
-
+/**
+ * @module shared
+ * @class GalleryComponent
+ * 
+ */
 @Component({
-  selector: &#x27;app-root&#x27;,
-  templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;]
+  selector: &#x27;app-gallery&#x27;,
+  templateUrl: &#x27;./gallery.component.html&#x27;,
+  styleUrls: [&#x27;./gallery.component.css&#x27;]
 })
-export class AppComponent {
-  title = &#x27;the-snooze&#x27;;
+export class GalleryComponent implements OnInit {
 
+  @Input() blob: UserBlob;
+  @Output() doAction: EventEmitter&lt;Item&gt; = new EventEmitter&lt;Item&gt;();
+
+  public selectedItem: Item = null;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  public onItemClicked(item: Item) {
+    this.selectedItem = item;
+  }
 
   /**
-   * initializes service worker
+   * event handling. closes the detail-overview by de-selecting the active cast
+   * @method closeOverlay
    */
-  constructor() {
-    // SERVICE WORKER
-
-    if (&#x27;serviceWorker&#x27; in navigator) {
-      window.addEventListener(&#x27;load&#x27;, function() {
-        navigator.serviceWorker.register(&#x27;./../../assets/sw_pagecache.js&#x27;).then(function(registration) {
-          // Registration was successful
-          console.log(&#x27;ServiceWorker registration successful with scope: &#x27;, registration.scope);
-        }, function(err) {
-          // registration failed :(
-          console.log(&#x27;ServiceWorker registration failed: &#x27;, err);
-        });
-      });
-    }
+  public closeOverlay(): void {
+    this.selectedItem = null;
   }
+
+
+  public triggerAction(item: Item): void {
+    this.doAction.emit(item);
+  }
+
+
+
 }
 
     </pre>

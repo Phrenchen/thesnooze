@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Cloudcast - TheSnooze Portfolio</title>
+    <title>src\app\shared\MathHelper.ts - TheSnooze Portfolio</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -41,15 +41,24 @@
                                 <li><a href="../classes/ArtComponent.html">ArtComponent</a></li>
                                 <li><a href="../classes/ArtItem.html">ArtItem</a></li>
                                 <li><a href="../classes/ArtService.html">ArtService</a></li>
-                                <li><a href="../classes/Cloudcast.html">Cloudcast</a></li>
+                                <li><a href="../classes/CloudcastItem.html">CloudcastItem</a></li>
+                                <li><a href="../classes/CloudcastUserBlob.html">CloudcastUserBlob</a></li>
+                                <li><a href="../classes/GalleryComponent.html">GalleryComponent</a></li>
+                                <li><a href="../classes/Item.html">Item</a></li>
+                                <li><a href="../classes/MenuComponent.html">MenuComponent</a></li>
                                 <li><a href="../classes/MixcloudComponent.html">MixcloudComponent</a></li>
                                 <li><a href="../classes/MixcloudService.html">MixcloudService</a></li>
+                                <li><a href="../classes/MixcloudUser.html">MixcloudUser</a></li>
+                                <li><a href="../classes/User.html">User</a></li>
+                                <li><a href="../classes/UserBlob.html">UserBlob</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/app.html">app</a></li>
                                 <li><a href="../modules/Art.html">Art</a></li>
                                 <li><a href="../modules/Mixcloud.html">Mixcloud</a></li>
+                                <li><a href="../modules/shared.html">shared</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,44 +92,24 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1>Cloudcast Class</h1>
-<div class="box meta">
+<h1 class="file-heading">File: src\app\shared\MathHelper.ts</h1>
 
+<div class="file">
+    <pre class="code prettyprint linenums">
+export class MathHelper {
 
-        <div class="foundat">
-            Defined in: <a href="../files/src_app_mixcloud_model_Cloudcast.ts.html#l1"><code>src\app\mixcloud\model\Cloudcast.ts:1</code></a>
-        </div>
-
-            Module: <a href="../modules/Mixcloud.html">Mixcloud</a>
-
-</div>
-
-
-<div class="box intro">
-    <p>value object</p>
-
-</div>
-
-
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
-
-    </ul>
-
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
-
-
-
-
-        </div>
-
-
-
-
-    </div>
+    /**
+     * @module shared
+     * @method getRandomInt
+     * @static
+     * @param min 
+     * @param max 
+     */
+    public static getRandomInt(min: number, max: number): number {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+}
+    </pre>
 </div>
                     </div>
                 </div>

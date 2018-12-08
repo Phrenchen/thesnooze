@@ -41,15 +41,24 @@
                                 <li><a href="../classes/ArtComponent.html">ArtComponent</a></li>
                                 <li><a href="../classes/ArtItem.html">ArtItem</a></li>
                                 <li><a href="../classes/ArtService.html">ArtService</a></li>
-                                <li><a href="../classes/Cloudcast.html">Cloudcast</a></li>
+                                <li><a href="../classes/CloudcastItem.html">CloudcastItem</a></li>
+                                <li><a href="../classes/CloudcastUserBlob.html">CloudcastUserBlob</a></li>
+                                <li><a href="../classes/GalleryComponent.html">GalleryComponent</a></li>
+                                <li><a href="../classes/Item.html">Item</a></li>
+                                <li><a href="../classes/MenuComponent.html">MenuComponent</a></li>
                                 <li><a href="../classes/MixcloudComponent.html">MixcloudComponent</a></li>
                                 <li><a href="../classes/MixcloudService.html">MixcloudService</a></li>
+                                <li><a href="../classes/MixcloudUser.html">MixcloudUser</a></li>
+                                <li><a href="../classes/User.html">User</a></li>
+                                <li><a href="../classes/UserBlob.html">UserBlob</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/app.html">app</a></li>
                                 <li><a href="../modules/Art.html">Art</a></li>
                                 <li><a href="../modules/Mixcloud.html">Mixcloud</a></li>
+                                <li><a href="../modules/shared.html">shared</a></li>
                             </ul>
                         </div>
                     </div>
@@ -87,13 +96,12 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-import { Component, OnInit, SecurityContext, Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { MixcloudService } from &#x27;./mixcloud.service&#x27;;
-import { Cloudcast, CloudcastBlob } from &#x27;./model/Cloudcast&#x27;;
-import { DomSanitizer } from &#x27;@angular/platform-browser&#x27;;
-import { DomSanitizerImpl, SafeUrl } from &#x27;@angular/platform-browser/src/security/dom_sanitization_service&#x27;;
+import { CloudcastUserBlob } from &#x27;./model/Interfaces&#x27;;
 import { MathHelper } from &#x27;../shared/MathHelper&#x27;;
-
+import { Item } from &#x27;../shared/gallery/model/Interfaces&#x27;;
+import { CollectionUtils } from &#x27;../shared/CollectionUtils&#x27;;
 
 
 enum WidgetConfig {
@@ -106,7 +114,9 @@ enum WidgetConfig {
 }
 
 /**
- * controller in charge of handling lists of Cloudcasts
+ * controller in charge of handling lists of Cloudcasts.
+ * * grid of item-cards
+ * * click on item to open overlay with detail view
  * @module Mixcloud
  * @class MixcloudComponent
  */
@@ -118,15 +128,15 @@ enum WidgetConfig {
 })
 export class MixcloudComponent implements OnInit {
 
-  private static WIDGET_BASE_URL = &#x27;https://www.mixcloud.com/widget/iframe/?feed=&#x27;;
+  public static WIDGET_BASE_URL = &#x27;https://www.mixcloud.com/widget/iframe/?feed=&#x27;;
 
-  public cloudCastBlob: CloudcastBlob;
+  public cloudCastBlob: CloudcastUserBlob;
 
-  public selectedCast: Cloudcast = null;
+  public selectedItem: Item = null;
 
   private widgetSource: string;
 
-  private widgetConfig: Array&lt;WidgetConfig&gt; = new Array&lt;WidgetConfig&gt;();
+  public widgetConfig: Array&lt;WidgetConfig&gt; = new Array&lt;WidgetConfig&gt;();
 
 
   /**
@@ -134,7 +144,9 @@ export class MixcloudComponent implements OnInit {
    * @method constructor
    * @param {MixcloudService} mixcloudService
    */
-  constructor(private mixcloudService: MixcloudService) { }
+  constructor(
+    private mixcloudService: MixcloudService
+    ) { }
 
 
   /**
@@ -143,7 +155,7 @@ export class MixcloudComponent implements OnInit {
    * @method ngOnInit
    */
   ngOnInit() {
-    if (!this.selectedCast) {
+    if (!this.selectedItem) {
       this.getCloudcasts();
 
     }
@@ -196,58 +208,22 @@ export class MixcloudComponent implements OnInit {
     return this.cloudCastBlob != null;
   }
 
-
-  /**
-   * event handling. set source for widget. bound to view
-   * @method playCast
-   * @param {string} source for widget
-   */
-  public playCast(castSource: string): void {
-    if (castSource &amp;&amp; castSource.length &gt; 0) {
-      this.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
-      this.widgetSource = castSource;
-      // console.log(&#x27;playing &#x27; + this.widgetSource);
-    }
-  }
-
   /**
    * event handling. set selected cast (user clicked on grid-item). bound to view
-   * @method onImageClicked
-   * @param {Cloudcast} selectedCloudcast for overlay
+   * @method doActionOnSelectedItem
+   * @param {Item} item for overlay
    */
-  public onImageClicked(selectedCloudcast: Cloudcast): void {
-    console.log(selectedCloudcast);
-    this.selectedCast = selectedCloudcast;
+  public doActionOnSelectedItem(item: Item) {
+    console.log(&#x27;do action on selected item: &#x27; + item);
+    CollectionUtils.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
+    this.widgetSource = item.key;
   }
 
-  /**
-   * event handling. de-select cast. bound to view
-   * @method closeOverlay
-   */
-  public closeOverlay(): void {
-    this.selectedCast = null;
-  }
-
-  /**
-   * prevents (re-)adding (null) items
-   * @method safeAdd
-   * @param {Array&lt;any&gt;} collection
-   * @param {any} item
-   */
-  private safeAdd(collection: Array&lt;any&gt;, item: any): void {
-    if (!collection || !item) {
-      return;
-    }
-
-    if (collection.indexOf(item) &lt; 0) {
-      collection.push(item);
-    }
-  }
 
   /**
    * triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API
+   * @private
    * @method async getCloudcasts
-   * 
    */
   private async getCloudcasts() {
     if (this.cloudCastBlob) {
@@ -261,7 +237,9 @@ export class MixcloudComponent implements OnInit {
     try {
       this.cloudCastBlob = cloudCastBlob;
 
-      this.widgetSource = this.getWidgetSource(this.cloudCastBlob);  // add ID of specific cast. default is random
+      // add ID of specific cast. default is random (-1)
+      this.widgetSource = this.getWidgetSource(this.cloudCastBlob, -1);
+
       // console.log(&#x27;initial widget source: &#x27; + this.widgetSource);
 
       // TODO: preselect to initially show the overlay! disable!
@@ -282,12 +260,13 @@ export class MixcloudComponent implements OnInit {
 
   /**
    * extracts source url for widget for a specific or a random cast
+   * @private
    * @method getWidgetSource
-   * @param {CloudcastBlob} cloudCastBlob
+   * @param {CloudcastUserBlob} cloudCastBlob
    * @param {number} [-1] - castId
    * @return {string} - sourceUrl
    */
-  private getWidgetSource(cloudCastBlob: CloudcastBlob, castId: number = -1): string {
+  private getWidgetSource(cloudCastBlob: CloudcastUserBlob, castId: number = -1): string {
     try {
       if (castId === -1) {
         // select random cast

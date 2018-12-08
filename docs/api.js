@@ -4,15 +4,29 @@ YUI.add("yuidoc-meta", function(Y) {
         "ArtComponent",
         "ArtItem",
         "ArtService",
-        "Cloudcast",
+        "CloudcastItem",
+        "CloudcastUserBlob",
+        "GalleryComponent",
+        "Item",
+        "MenuComponent",
         "MixcloudComponent",
-        "MixcloudService"
+        "MixcloudService",
+        "MixcloudUser",
+        "User",
+        "UserBlob"
     ],
     "modules": [
         "Art",
-        "Mixcloud"
+        "Mixcloud",
+        "app",
+        "shared"
     ],
     "allModules": [
+        {
+            "displayName": "app",
+            "name": "app",
+            "description": "contains a list of buttons. static html only, so far"
+        },
         {
             "displayName": "Art",
             "name": "Art",
@@ -21,7 +35,12 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "Mixcloud",
             "name": "Mixcloud",
-            "description": "value object"
+            "description": "* concrete item variant\n* Mixcloud specific values"
+        },
+        {
+            "displayName": "shared",
+            "name": "shared",
+            "description": "basic class to handle items as entities"
         }
     ],
     "elements": []

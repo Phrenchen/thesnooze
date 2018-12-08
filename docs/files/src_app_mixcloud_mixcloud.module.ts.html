@@ -41,15 +41,24 @@
                                 <li><a href="../classes/ArtComponent.html">ArtComponent</a></li>
                                 <li><a href="../classes/ArtItem.html">ArtItem</a></li>
                                 <li><a href="../classes/ArtService.html">ArtService</a></li>
-                                <li><a href="../classes/Cloudcast.html">Cloudcast</a></li>
+                                <li><a href="../classes/CloudcastItem.html">CloudcastItem</a></li>
+                                <li><a href="../classes/CloudcastUserBlob.html">CloudcastUserBlob</a></li>
+                                <li><a href="../classes/GalleryComponent.html">GalleryComponent</a></li>
+                                <li><a href="../classes/Item.html">Item</a></li>
+                                <li><a href="../classes/MenuComponent.html">MenuComponent</a></li>
                                 <li><a href="../classes/MixcloudComponent.html">MixcloudComponent</a></li>
                                 <li><a href="../classes/MixcloudService.html">MixcloudService</a></li>
+                                <li><a href="../classes/MixcloudUser.html">MixcloudUser</a></li>
+                                <li><a href="../classes/User.html">User</a></li>
+                                <li><a href="../classes/UserBlob.html">UserBlob</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/app.html">app</a></li>
                                 <li><a href="../modules/Art.html">Art</a></li>
                                 <li><a href="../modules/Mixcloud.html">Mixcloud</a></li>
+                                <li><a href="../modules/shared.html">shared</a></li>
                             </ul>
                         </div>
                     </div>
@@ -92,23 +101,23 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 
 import { MixcloudRoutingModule } from &#x27;./mixcloud-routing.module&#x27;;
 import { MixcloudComponent } from &#x27;./mixcloud.component&#x27;;
-import { MixcloudOverlayComponent } from &#x27;./mixcloud-overlay/mixcloud-overlay.component&#x27;;
-import { SafePipe } from &#x27;../app.component&#x27;;
+import { SharedModule } from &#x27;../shared/shared.module&#x27;;
+import { WidgetUrlPipePipe } from &#x27;./pipes/widget-url-pipe.pipe&#x27;;
+
 
 /**
  * contains components to display shows in a grid, an audio player (Mixcloud widget) and has a detail view as overlay.
- * 
  * @module Mixcloud
  */
 @NgModule({
   imports: [
     CommonModule,
-    MixcloudRoutingModule
+    MixcloudRoutingModule,
+    SharedModule
   ],
   declarations: [
     MixcloudComponent,
-    MixcloudOverlayComponent,
-    SafePipe
+    WidgetUrlPipePipe
   ]
 })
 export class MixcloudModule { }

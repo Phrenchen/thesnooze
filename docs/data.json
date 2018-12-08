@@ -35,13 +35,26 @@
             "fors": {},
             "namespaces": {}
         },
-        "src\\app\\mixcloud\\model\\Cloudcast.ts": {
-            "name": "src\\app\\mixcloud\\model\\Cloudcast.ts",
+        "src\\app\\components\\menu\\menu.component.ts": {
+            "name": "src\\app\\components\\menu\\menu.component.ts",
+            "modules": {
+                "app": 1
+            },
+            "classes": {
+                "MenuComponent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\mixcloud\\model\\Interfaces.ts": {
+            "name": "src\\app\\mixcloud\\model\\Interfaces.ts",
             "modules": {
                 "Mixcloud": 1
             },
             "classes": {
-                "Cloudcast": 1
+                "CloudcastItem": 1,
+                "CloudcastUserBlob": 1,
+                "MixcloudUser": 1
             },
             "fors": {},
             "namespaces": {}
@@ -68,6 +81,42 @@
             "classes": {
                 "MixcloudService": 1
             },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\shared\\gallery\\model\\Interfaces.ts": {
+            "name": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
+            "modules": {
+                "shared": 1
+            },
+            "classes": {
+                "Item": 1,
+                "UserBlob": 1,
+                "User": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\shared\\gallery\\gallery.component.ts": {
+            "name": "src\\app\\shared\\gallery\\gallery.component.ts",
+            "modules": {},
+            "classes": {
+                "GalleryComponent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\shared\\CollectionUtils.ts": {
+            "name": "src\\app\\shared\\CollectionUtils.ts",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\shared\\MathHelper.ts": {
+            "name": "src\\app\\shared\\MathHelper.ts",
+            "modules": {},
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -110,12 +159,28 @@
             "line": 5,
             "description": "value object"
         },
+        "app": {
+            "name": "app",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "MenuComponent": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\app\\components\\menu\\menu.component.ts",
+            "line": 3,
+            "description": "contains a list of buttons. static html only, so far"
+        },
         "Mixcloud": {
             "name": "Mixcloud",
             "submodules": {},
             "elements": {},
             "classes": {
-                "Cloudcast": 1,
+                "CloudcastItem": 1,
+                "CloudcastUserBlob": 1,
+                "MixcloudUser": 1,
                 "MixcloudComponent": 1,
                 "MixcloudService": 1
             },
@@ -124,7 +189,38 @@
             "tag": "module",
             "file": "src\\app\\mixcloud\\mixcloud.service.ts",
             "line": 4,
-            "description": "value object"
+            "description": "* concrete item variant\n* Mixcloud specific values",
+            "extends": "Mixcloud.Item",
+            "is_constructor": 1
+        },
+        "shared": {
+            "name": "shared",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Item": 1,
+                "UserBlob": 1,
+                "User": 1,
+                "GalleryComponent": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src\\app\\shared\\gallery\\gallery.component.ts",
+            "line": 4,
+            "description": "basic class to handle items as entities",
+            "itemtype": "method",
+            "static": 1,
+            "params": [
+                {
+                    "name": "min",
+                    "description": ""
+                },
+                {
+                    "name": "max",
+                    "description": ""
+                }
+            ]
         }
     },
     "classes": {
@@ -170,9 +266,23 @@
             "line": 5,
             "description": "(http ) GETS and serves ArtItems"
         },
-        "Cloudcast": {
-            "name": "Cloudcast",
-            "shortname": "Cloudcast",
+        "MenuComponent": {
+            "name": "MenuComponent",
+            "shortname": "MenuComponent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "app",
+            "namespace": "",
+            "file": "src\\app\\components\\menu\\menu.component.ts",
+            "line": 3,
+            "description": "contains a list of buttons. static html only, so far"
+        },
+        "CloudcastItem": {
+            "name": "CloudcastItem",
+            "shortname": "CloudcastItem",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -180,9 +290,37 @@
             "extension_for": [],
             "module": "Mixcloud",
             "namespace": "",
-            "file": "src\\app\\mixcloud\\model\\Cloudcast.ts",
-            "line": 1,
-            "description": "value object"
+            "file": "src\\app\\mixcloud\\model\\Interfaces.ts",
+            "line": 4,
+            "description": "* concrete item variant\n* Mixcloud specific values"
+        },
+        "CloudcastUserBlob": {
+            "name": "CloudcastUserBlob",
+            "shortname": "CloudcastUserBlob",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Mixcloud",
+            "namespace": "",
+            "file": "src\\app\\mixcloud\\model\\Interfaces.ts",
+            "line": 28,
+            "description": "* concrete variant of UserBlob\n* Mixcloud specific values <br/>"
+        },
+        "MixcloudUser": {
+            "name": "MixcloudUser",
+            "shortname": "MixcloudUser",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Mixcloud",
+            "namespace": "",
+            "file": "src\\app\\mixcloud\\model\\Interfaces.ts",
+            "line": 44,
+            "description": "* concrete variant of User\n* Mixcloud specific values\nextends {{#crossLink \"Mixcloud.User\"}}User{{/crossLink}}"
         },
         "MixcloudComponent": {
             "name": "MixcloudComponent",
@@ -195,8 +333,8 @@
             "module": "Mixcloud",
             "namespace": "",
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 19,
-            "description": "controller in charge of handling lists of Cloudcasts"
+            "line": 18,
+            "description": "controller in charge of handling lists of Cloudcasts.\n* grid of item-cards\n* click on item to open overlay with detail view"
         },
         "MixcloudService": {
             "name": "MixcloudService",
@@ -211,6 +349,61 @@
             "file": "src\\app\\mixcloud\\mixcloud.service.ts",
             "line": 4,
             "description": "Mixcloud connector / service"
+        },
+        "Item": {
+            "name": "Item",
+            "shortname": "Item",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "shared",
+            "namespace": "",
+            "file": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
+            "line": 1,
+            "description": "basic class to handle items as entities"
+        },
+        "UserBlob": {
+            "name": "UserBlob",
+            "shortname": "UserBlob",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "shared",
+            "namespace": "",
+            "file": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
+            "line": 41,
+            "description": "base to handle user-blobs as entities"
+        },
+        "User": {
+            "name": "User",
+            "shortname": "User",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "shared",
+            "namespace": "",
+            "file": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
+            "line": 51,
+            "description": "base to handle users as entities"
+        },
+        "GalleryComponent": {
+            "name": "GalleryComponent",
+            "shortname": "GalleryComponent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "shared",
+            "namespace": "",
+            "file": "src\\app\\shared\\gallery\\gallery.component.ts",
+            "line": 4
         }
     },
     "elements": {},
@@ -291,7 +484,7 @@
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 43,
+            "line": 44,
             "description": "injecting MixcloudService",
             "itemtype": "method",
             "name": "constructor",
@@ -307,7 +500,7 @@
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 51,
+            "line": 54,
             "description": "Angular lifecycle method\nadd widget config enums into config-array",
             "itemtype": "method",
             "name": "ngOnInit",
@@ -316,7 +509,7 @@
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 70,
+            "line": 73,
             "description": "called by view",
             "itemtype": "method",
             "name": "get widgetUrl",
@@ -325,7 +518,7 @@
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 90,
+            "line": 93,
             "description": "called by view",
             "itemtype": "method",
             "name": "get portraitUrl",
@@ -334,7 +527,7 @@
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 102,
+            "line": 105,
             "description": "helper, used for early outs",
             "itemtype": "method",
             "name": "get castAvailable",
@@ -343,61 +536,15 @@
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 111,
-            "description": "event handling. set source for widget. bound to view",
-            "itemtype": "method",
-            "name": "playCast",
-            "params": [
-                {
-                    "name": "source",
-                    "description": "for widget",
-                    "type": "String"
-                }
-            ],
-            "class": "MixcloudComponent",
-            "module": "Mixcloud"
-        },
-        {
-            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 124,
+            "line": 113,
             "description": "event handling. set selected cast (user clicked on grid-item). bound to view",
             "itemtype": "method",
-            "name": "onImageClicked",
+            "name": "doActionOnSelectedItem",
             "params": [
-                {
-                    "name": "selectedCloudcast",
-                    "description": "for overlay",
-                    "type": "Cloudcast"
-                }
-            ],
-            "class": "MixcloudComponent",
-            "module": "Mixcloud"
-        },
-        {
-            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 134,
-            "description": "event handling. de-select cast. bound to view",
-            "itemtype": "method",
-            "name": "closeOverlay",
-            "class": "MixcloudComponent",
-            "module": "Mixcloud"
-        },
-        {
-            "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 142,
-            "description": "prevents (re-)adding (null) items",
-            "itemtype": "method",
-            "name": "safeAdd",
-            "params": [
-                {
-                    "name": "collection",
-                    "description": "",
-                    "type": "Array<any>"
-                },
                 {
                     "name": "item",
-                    "description": "",
-                    "type": "Any"
+                    "description": "for overlay",
+                    "type": "Item"
                 }
             ],
             "class": "MixcloudComponent",
@@ -405,8 +552,10 @@
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 158,
+            "line": 125,
             "description": "triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API",
+            "access": "private",
+            "tagname": "",
             "itemtype": "method",
             "name": "async getCloudcasts",
             "class": "MixcloudComponent",
@@ -414,15 +563,17 @@
         },
         {
             "file": "src\\app\\mixcloud\\mixcloud.component.ts",
-            "line": 194,
+            "line": 163,
             "description": "extracts source url for widget for a specific or a random cast",
+            "access": "private",
+            "tagname": "",
             "itemtype": "method",
             "name": "getWidgetSource",
             "params": [
                 {
                     "name": "cloudCastBlob",
                     "description": "",
-                    "type": "CloudcastBlob"
+                    "type": "CloudcastUserBlob"
                 },
                 {
                     "name": "-1",
@@ -512,94 +663,174 @@
             "module": "Mixcloud"
         },
         {
-            "file": "src\\app\\app.component.ts",
+            "file": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
+            "line": 8,
+            "description": "unique identifier",
+            "itemtype": "attribute",
+            "name": "id",
+            "type": "String",
+            "class": "Item",
+            "module": "shared"
+        },
+        {
+            "file": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
+            "line": 14,
+            "description": "source url for Mixcloud widget\n* TODO! MOVE THIS TO CloudcastItem!",
+            "itemtype": "attribute",
+            "name": "key",
+            "type": "String",
+            "class": "Item",
+            "module": "shared"
+        },
+        {
+            "file": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
             "line": 21,
+            "description": "creation-date-string - use for Date",
+            "itemtype": "attribute",
+            "name": "created_time",
+            "type": "String",
+            "class": "Item",
+            "module": "shared"
+        },
+        {
+            "file": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
+            "line": 27,
+            "description": "contains avatar url etc.",
+            "itemtype": "attribute",
+            "name": "user",
+            "type": "User",
+            "class": "Item",
+            "module": "shared"
+        },
+        {
+            "file": "src\\app\\shared\\gallery\\model\\Interfaces.ts",
+            "line": 33,
+            "description": "use for Date\n* TODO! MOVE THIS TO CloudcastItem!",
+            "itemtype": "attribute",
+            "name": "audio_length",
+            "class": "Item",
+            "module": "shared"
+        },
+        {
+            "file": "src\\app\\shared\\gallery\\gallery.component.ts",
+            "line": 30,
+            "description": "event handling. closes the detail-overview by de-selecting the active cast",
+            "itemtype": "method",
+            "name": "closeOverlay",
+            "class": "GalleryComponent",
+            "module": "shared"
+        },
+        {
+            "file": "src\\app\\shared\\CollectionUtils.ts",
+            "line": 4,
+            "description": "prevents (re-)adding (null) items",
+            "itemtype": "method",
+            "name": "safeAdd",
+            "static": 1,
+            "params": [
+                {
+                    "name": "collection",
+                    "description": "",
+                    "type": "Array<any>"
+                },
+                {
+                    "name": "item",
+                    "description": "",
+                    "type": "Any"
+                }
+            ],
+            "class": "",
+            "module": "shared"
+        },
+        {
+            "file": "src\\app\\app.component.ts",
+            "line": 15,
             "description": "initializes service worker",
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\app\\app.module.ts",
-            "line": 14,
+            "line": 15,
             "description": "AppModule description",
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 1,
             "description": "This file includes polyfills needed by Angular and is loaded before the app.\nYou can add your own extra polyfills to this file.\n\nThis file is divided into 2 sections:\n  1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n  2. Application imports. Files imported after ZoneJS that should be loaded before your main\n     file.\n\nThe current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\nautomatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),\nEdge >= 13 on the desktop, and iOS 10 and Chrome on mobile.\n\nLearn more in https://angular.io/docs/ts/latest/guide/browser-support.html",
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 17,
             "description": "BROWSER POLYFILLS",
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 21,
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 37,
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 40,
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 44,
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 49,
             "description": "Web Animations `@angular/platform-browser/animations`\nOnly required if AnimationBuilder is used within the application and using IE/Edge or Safari.\nStandard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).",
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 56,
             "description": "By default, zone.js will patch all possible macroTask and DomEvents\nuser can disable parts of macroTask/DomEvents patch by setting following flags",
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 71,
             "description": "Zone JS is required by default for Angular itself.",
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         },
         {
             "file": "src\\polyfills.ts",
             "line": 78,
             "description": "APPLICATION IMPORTS",
             "class": "",
-            "module": "Mixcloud"
+            "module": "shared"
         }
     ],
     "warnings": [
         {
             "message": "Missing item type\ninitializes service worker",
-            "line": " src\\app\\app.component.ts:21"
+            "line": " src\\app\\app.component.ts:15"
         },
         {
             "message": "Missing item type\nAppModule description",
-            "line": " src\\app\\app.module.ts:14"
+            "line": " src\\app\\app.module.ts:15"
         },
         {
             "message": "Missing item type\nThis file includes polyfills needed by Angular and is loaded before the app.\nYou can add your own extra polyfills to this file.\n\nThis file is divided into 2 sections:\n  1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\n  2. Application imports. Files imported after ZoneJS that should be loaded before your main\n     file.\n\nThe current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\nautomatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),\nEdge >= 13 on the desktop, and iOS 10 and Chrome on mobile.\n\nLearn more in https://angular.io/docs/ts/latest/guide/browser-support.html",

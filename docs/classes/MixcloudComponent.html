@@ -41,15 +41,24 @@
                                 <li><a href="../classes/ArtComponent.html">ArtComponent</a></li>
                                 <li><a href="../classes/ArtItem.html">ArtItem</a></li>
                                 <li><a href="../classes/ArtService.html">ArtService</a></li>
-                                <li><a href="../classes/Cloudcast.html">Cloudcast</a></li>
+                                <li><a href="../classes/CloudcastItem.html">CloudcastItem</a></li>
+                                <li><a href="../classes/CloudcastUserBlob.html">CloudcastUserBlob</a></li>
+                                <li><a href="../classes/GalleryComponent.html">GalleryComponent</a></li>
+                                <li><a href="../classes/Item.html">Item</a></li>
+                                <li><a href="../classes/MenuComponent.html">MenuComponent</a></li>
                                 <li><a href="../classes/MixcloudComponent.html">MixcloudComponent</a></li>
                                 <li><a href="../classes/MixcloudService.html">MixcloudService</a></li>
+                                <li><a href="../classes/MixcloudUser.html">MixcloudUser</a></li>
+                                <li><a href="../classes/User.html">User</a></li>
+                                <li><a href="../classes/UserBlob.html">UserBlob</a></li>
                             </ul>
                 
                 
                             <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/app.html">app</a></li>
                                 <li><a href="../modules/Art.html">Art</a></li>
                                 <li><a href="../modules/Mixcloud.html">Mixcloud</a></li>
+                                <li><a href="../modules/shared.html">shared</a></li>
                             </ul>
                         </div>
                     </div>
@@ -88,7 +97,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l19"><code>src\app\mixcloud\mixcloud.component.ts:19</code></a>
+            Defined in: <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l18"><code>src\app\mixcloud\mixcloud.component.ts:18</code></a>
         </div>
 
             Module: <a href="../modules/Mixcloud.html">Mixcloud</a>
@@ -97,7 +106,11 @@
 
 
 <div class="box intro">
-    <p>controller in charge of handling lists of Cloudcasts</p>
+    <p>controller in charge of handling lists of Cloudcasts.</p>
+<ul>
+<li>grid of item-cards</li>
+<li>click on item to open overlay with detail view</li>
+</ul>
 
 </div>
 
@@ -117,16 +130,16 @@
                     <h3>Methods</h3>
 
                     <ul class="index-list methods">
-                            <li class="index-item method">
+                            <li class="index-item method private">
                                 <a href="#method_async getCloudcasts">async getCloudcasts</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_closeOverlay">closeOverlay</a>
+                                <a href="#method_constructor">constructor</a>
 
                             </li>
                             <li class="index-item method">
-                                <a href="#method_constructor">constructor</a>
+                                <a href="#method_doActionOnSelectedItem">doActionOnSelectedItem</a>
 
                             </li>
                             <li class="index-item method">
@@ -141,24 +154,12 @@
                                 <a href="#method_get widgetUrl">get widgetUrl</a>
 
                             </li>
-                            <li class="index-item method">
+                            <li class="index-item method private">
                                 <a href="#method_getWidgetSource">getWidgetSource</a>
 
                             </li>
                             <li class="index-item method">
                                 <a href="#method_ngOnInit">ngOnInit</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_onImageClicked">onImageClicked</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_playCast">playCast</a>
-
-                            </li>
-                            <li class="index-item method">
-                                <a href="#method_safeAdd">safeAdd</a>
 
                             </li>
                     </ul>
@@ -171,13 +172,14 @@
             <div id="methods" class="api-class-tabpanel">
                 <h2 class="off-left">Methods</h2>
 
-<div id="method_async getCloudcasts" class="method item">
+<div id="method_async getCloudcasts" class="method item private">
     <h3 class="name"><code>async getCloudcasts</code></h3>
 
         <span class="paren">()</span>
 
 
 
+        <span class="flag private">private</span>
 
 
 
@@ -186,7 +188,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l158"><code>src\app\mixcloud\mixcloud.component.ts:158</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l125"><code>src\app\mixcloud\mixcloud.component.ts:125</code></a>
         </p>
 
 
@@ -195,37 +197,6 @@
 
     <div class="description">
         <p>triggers MixcloudService to HTTP-GET cloudcasts via Mixcloud API</p>
-
-    </div>
-
-
-
-
-</div>
-<div id="method_closeOverlay" class="method item">
-    <h3 class="name"><code>closeOverlay</code></h3>
-
-        <span class="paren">()</span>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l134"><code>src\app\mixcloud\mixcloud.component.ts:134</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>event handling. de-select cast. bound to view</p>
 
     </div>
 
@@ -254,7 +225,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l43"><code>src\app\mixcloud\mixcloud.component.ts:43</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l44"><code>src\app\mixcloud\mixcloud.component.ts:44</code></a>
         </p>
 
 
@@ -286,6 +257,60 @@
 
 
 </div>
+<div id="method_doActionOnSelectedItem" class="method item">
+    <h3 class="name"><code>doActionOnSelectedItem</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>item</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l113"><code>src\app\mixcloud\mixcloud.component.ts:113</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>event handling. set selected cast (user clicked on grid-item). bound to view</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">item</code>
+                        <span class="type"><a href="../classes/Item.html" class="crosslink">Item</a></span>
+
+
+                    <div class="param-description">
+                        <p>for overlay</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
 <div id="method_get castAvailable" class="method item">
     <h3 class="name"><code>get castAvailable</code></h3>
 
@@ -301,7 +326,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l102"><code>src\app\mixcloud\mixcloud.component.ts:102</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l105"><code>src\app\mixcloud\mixcloud.component.ts:105</code></a>
         </p>
 
 
@@ -332,7 +357,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l90"><code>src\app\mixcloud\mixcloud.component.ts:90</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l93"><code>src\app\mixcloud\mixcloud.component.ts:93</code></a>
         </p>
 
 
@@ -363,7 +388,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l70"><code>src\app\mixcloud\mixcloud.component.ts:70</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l73"><code>src\app\mixcloud\mixcloud.component.ts:73</code></a>
         </p>
 
 
@@ -379,7 +404,7 @@
 
 
 </div>
-<div id="method_getWidgetSource" class="method item">
+<div id="method_getWidgetSource" class="method item private">
     <h3 class="name"><code>getWidgetSource</code></h3>
 
         <div class="args">
@@ -398,6 +423,7 @@
         </span>
 
 
+        <span class="flag private">private</span>
 
 
 
@@ -406,7 +432,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l194"><code>src\app\mixcloud\mixcloud.component.ts:194</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l163"><code>src\app\mixcloud\mixcloud.component.ts:163</code></a>
         </p>
 
 
@@ -424,7 +450,7 @@
             <ul class="params-list">
                 <li class="param">
                         <code class="param-name">cloudCastBlob</code>
-                        <span class="type">CloudcastBlob</span>
+                        <span class="type"><a href="../classes/CloudcastUserBlob.html" class="crosslink">CloudcastUserBlob</a></span>
 
 
                     <div class="param-description">
@@ -478,7 +504,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l51"><code>src\app\mixcloud\mixcloud.component.ts:51</code></a>
+        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l54"><code>src\app\mixcloud\mixcloud.component.ts:54</code></a>
         </p>
 
 
@@ -491,180 +517,6 @@ add widget config enums into config-array</p>
 
     </div>
 
-
-
-
-</div>
-<div id="method_onImageClicked" class="method item">
-    <h3 class="name"><code>onImageClicked</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>selectedCloudcast</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l124"><code>src\app\mixcloud\mixcloud.component.ts:124</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>event handling. set selected cast (user clicked on grid-item). bound to view</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">selectedCloudcast</code>
-                        <span class="type"><a href="../classes/Cloudcast.html" class="crosslink">Cloudcast</a></span>
-
-
-                    <div class="param-description">
-                        <p>for overlay</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_playCast" class="method item">
-    <h3 class="name"><code>playCast</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>source</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l111"><code>src\app\mixcloud\mixcloud.component.ts:111</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>event handling. set source for widget. bound to view</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">source</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-
-                    <div class="param-description">
-                        <p>for widget</p>
-
-                    </div>
-
-                </li>
-            </ul>
-        </div>
-
-
-
-</div>
-<div id="method_safeAdd" class="method item">
-    <h3 class="name"><code>safeAdd</code></h3>
-
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-                <li class="arg">
-                        <code>collection</code>
-                </li>
-                <li class="arg">
-                        <code>item</code>
-                </li>
-            </ul><span class="paren">)</span>
-        </div>
-
-
-
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_app_mixcloud_mixcloud.component.ts.html#l142"><code>src\app\mixcloud\mixcloud.component.ts:142</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>prevents (re-)adding (null) items</p>
-
-    </div>
-
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-                <li class="param">
-                        <code class="param-name">collection</code>
-                        <span class="type">Array<any></span>
-
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                </li>
-                <li class="param">
-                        <code class="param-name">item</code>
-                        <span class="type">Any</span>
-
-
-                    <div class="param-description">
-                         
-                    </div>
-
-                </li>
-            </ul>
-        </div>
 
 
 

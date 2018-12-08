@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>src\app\app.component.ts - TheSnooze Portfolio</title>
+    <title>src\app\shared\CollectionUtils.ts - TheSnooze Portfolio</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -92,40 +92,27 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-<h1 class="file-heading">File: src\app\app.component.ts</h1>
+<h1 class="file-heading">File: src\app\shared\CollectionUtils.ts</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
-
-import { Component } from &#x27;@angular/core&#x27;;
-
-
-
-@Component({
-  selector: &#x27;app-root&#x27;,
-  templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;]
-})
-export class AppComponent {
-  title = &#x27;the-snooze&#x27;;
+export class CollectionUtils {
 
 
   /**
-   * initializes service worker
+   * prevents (re-)adding (null) items
+   * @method safeAdd
+   * @static
+   * @param {Array&lt;any&gt;} collection
+   * @param {any} item
    */
-  constructor() {
-    // SERVICE WORKER
+  public static safeAdd(collection: Array&lt;any&gt;, item: any): void {
+    if (!collection || !item) {
+      return;
+    }
 
-    if (&#x27;serviceWorker&#x27; in navigator) {
-      window.addEventListener(&#x27;load&#x27;, function() {
-        navigator.serviceWorker.register(&#x27;./../../assets/sw_pagecache.js&#x27;).then(function(registration) {
-          // Registration was successful
-          console.log(&#x27;ServiceWorker registration successful with scope: &#x27;, registration.scope);
-        }, function(err) {
-          // registration failed :(
-          console.log(&#x27;ServiceWorker registration failed: &#x27;, err);
-        });
-      });
+    if (collection.indexOf(item) &lt; 0) {
+      collection.push(item);
     }
   }
 }

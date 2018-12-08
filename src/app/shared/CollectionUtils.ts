@@ -1,3 +1,7 @@
+/**
+ * @module shared
+ * @class CollectionUtils
+ */
 export class CollectionUtils {
 
 

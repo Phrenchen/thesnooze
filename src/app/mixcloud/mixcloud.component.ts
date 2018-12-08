@@ -3,6 +3,7 @@ import { MixcloudService } from './mixcloud.service';
 import { CloudcastUserBlob } from './model/Interfaces';
 import { MathHelper } from '../shared/MathHelper';
 import { Item } from '../shared/gallery/model/Interfaces';
+import { CollectionUtils } from '../shared/CollectionUtils';
 
 
 enum WidgetConfig {
@@ -45,7 +46,9 @@ export class MixcloudComponent implements OnInit {
    * @method constructor
    * @param {MixcloudService} mixcloudService
    */
-  constructor(private mixcloudService: MixcloudService) { }
+  constructor(
+    private mixcloudService: MixcloudService
+    ) { }
 
 
   /**
@@ -107,25 +110,16 @@ export class MixcloudComponent implements OnInit {
     return this.cloudCastBlob != null;
   }
 
-
-
-
   /**
    * event handling. set selected cast (user clicked on grid-item). bound to view
-   * @method onImageClicked
-   * @param {Item} selectedCloudcast for overlay
+   * @method doActionOnSelectedItem
+   * @param {Item} item for overlay
    */
-  // public onImageClicked(selectedCloudcast: Item): void {
-  //   console.log(selectedCloudcast);
-  //   this.selectedItem = selectedCloudcast;
-  // }
   public doActionOnSelectedItem(item: Item) {
     console.log('do action on selected item: ' + item);
+    CollectionUtils.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
+    this.widgetSource = item.key;
   }
-
-
-
-
 
 
   /**
@@ -145,7 +139,9 @@ export class MixcloudComponent implements OnInit {
     try {
       this.cloudCastBlob = cloudCastBlob;
 
-      this.widgetSource = this.getWidgetSource(this.cloudCastBlob);  // add ID of specific cast. default is random
+      // add ID of specific cast. default is random (-1)
+      this.widgetSource = this.getWidgetSource(this.cloudCastBlob, -1);
+
       // console.log('initial widget source: ' + this.widgetSource);
 
       // TODO: preselect to initially show the overlay! disable!

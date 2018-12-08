@@ -17,7 +17,7 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   public onItemClicked(item: Item) {
     this.selectedItem = item;
   }
@@ -36,21 +36,5 @@ export class GalleryComponent implements OnInit {
   }
 
 
-  
-  /**
-   * prevents (re-)adding (null) items
-   * @private
-   * @method safeAdd
-   * @param {Array<any>} collection
-   * @param {any} item
-   */
-  private safeAdd(collection: Array<any>, item: any): void {
-    if (!collection || !item) {
-      return;
-    }
 
-    if (collection.indexOf(item) < 0) {
-      collection.push(item);
-    }
-  }
 }

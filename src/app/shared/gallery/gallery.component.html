@@ -9,6 +9,6 @@
   <app-gallery-overlay *ngIf="selectedItem"
     [item]="selectedItem"
     (closeMe)="closeOverlay();"
-    (doAction)="triggerAction($event)"
+    (doAction)="triggerAction(selectedItem)"
   ></app-gallery-overlay>
 </div>

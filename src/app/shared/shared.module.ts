@@ -5,10 +5,19 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryOverlayComponent } from './gallery/gallery-overlay/gallery-overlay.component';
 
 @NgModule({
-  declarations: [SafePipe, GalleryComponent, GalleryOverlayComponent],
+  declarations: [
+    SafePipe,
+    GalleryComponent,
+    GalleryOverlayComponent
+  ],
   imports: [
     CommonModule
   ],
-  exports: [SafePipe, GalleryComponent]
+  exports: [
+    SafePipe,
+    GalleryComponent
+  ],
+  providers: [
+  ]
 })
 export class SharedModule { }

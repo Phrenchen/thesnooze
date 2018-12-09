@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <app-gallery-overlay *ngIf="selectedItem"
+  <app-gallery-overlay *ngIf="showOverlay"
     [item]="selectedItem"
     (closeMe)="closeOverlay();"
     (doAction)="triggerAction(selectedItem)"

@@ -12,14 +12,20 @@ import { UserBlob, Item } from './model/Interfaces';
 export class GalleryComponent implements OnInit {
 
   @Input() blob: UserBlob;
+  @Input() overlayEnabled = false;
   @Output() doAction: EventEmitter<Item> = new EventEmitter<Item>();
 
   public selectedItem: Item = null;
+
 
   constructor() { }
 
   ngOnInit() {
     console.log(this.blob);
+  }
+
+  public get showOverlay(): boolean {
+    return this.selectedItem && this.overlayEnabled;
   }
 
   public onItemClicked(item: Item) {
@@ -36,7 +42,7 @@ export class GalleryComponent implements OnInit {
 
 
   public triggerAction(item: Item): void {
-    this.doAction.emit(item);
+    // this.doAction.emit(item);
   }
 
 

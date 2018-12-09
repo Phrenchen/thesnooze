@@ -11,25 +11,11 @@
     <!-- <iframe id="mixcloud-widget" [src]="selectedCast | widgetUrlPipe:widgetConfig | safe" frameborder="0" allow="autoplay" width="100%"></iframe> -->
 </div>
   
+  <!-- shows list of items in a grid. opens overlay with details on item click -->
   <app-gallery
+    [overlayEnabled]="true"
     [blob]="cloudCastBlob"
     (doAction)="doActionOnSelectedItem($event)"
     ></app-gallery>
 
-    
-<!--   
-  <div class="cloudcast-grid">
-    <div *ngFor="let cloudcast of cloudCastBlob.data" class="cloudcast" (click)="onImageClicked(cloudcast)">
-      <img class="cast-thumbnail" [src]="cloudcast.pictures.medium" >
-      <p>{{ cloudcast.name }}</p>
-    </div>
-  </div>
-
-  <app-mixcloud-overlay *ngIf="selectedCast"
-    [cloudcast]="selectedCast"
-    (closeMe)="closeOverlay();"
-    (playMe)="playCast($event)"
-  ></app-mixcloud-overlay> -->
-
-  
 </div>

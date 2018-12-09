@@ -14,7 +14,7 @@
   <!-- shows list of items in a grid. opens overlay with details on item click -->
   <app-gallery
     [overlayEnabled]="true"
-    [blob]="cloudCastBlob"
+    [items]="cloudCastBlob.data"
     (doAction)="doActionOnSelectedItem($event)"
     ></app-gallery>
 

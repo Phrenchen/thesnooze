@@ -11,7 +11,7 @@ import { UserBlob, Item } from './model/Interfaces';
 })
 export class GalleryComponent implements OnInit {
 
-  @Input() blob: UserBlob;
+  @Input() items: Array<Item>;
   @Input() overlayEnabled = false;
   @Output() doAction: EventEmitter<Item> = new EventEmitter<Item>();
 
@@ -21,7 +21,9 @@ export class GalleryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.blob);
+    if (this.items) {
+      console.log(this.items.length);
+    }
   }
 
   public get showOverlay(): boolean {

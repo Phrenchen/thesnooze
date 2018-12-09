@@ -9,8 +9,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { AboutComponent } from './about/about.component';
 import { ArtComponent } from './art/art.component';
-import { ItemSelectorComponent } from './art/item-selector/item-selector.component';
 import { SharedModule } from './shared/shared.module';
+import { ArtItemDetailsComponent } from './art/item-details/art-item-details.component';
 
 /**
  * AppModule description
@@ -23,7 +23,7 @@ import { SharedModule } from './shared/shared.module';
     AboutComponent,
     StartpageComponent,
     ArtComponent,
-    ItemSelectorComponent
+    ArtItemDetailsComponent
   ],
   imports: [
     BrowserModule,

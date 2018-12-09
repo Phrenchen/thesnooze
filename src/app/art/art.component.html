@@ -1,28 +1,12 @@
 <h2>Art</h2>
 <div class="art-grid">
-    <app-gallery
-        [blob]="artBlob"
+    <app-gallery [items]="galleryItemsLeft" (doAction)="doActionOnSelectedItem($event)"></app-gallery>
+
+    <img src="{{centerImageUrl}}">
+
+    <!-- <app-gallery
+        [items]="galleryItemsRight"
         (doAction)="doActionOnSelectedItem($event)"
-    ></app-gallery>
-    
-    <img src="{{centerImageUrl}}" >
-    
-    <app-gallery
-        [blob]="artBlob"
-        (doAction)="doActionOnSelectedItem($event)"
-    ></app-gallery>
+    ></app-gallery> -->
+
 </div>
-
-
-
-
-<!-- <div class="art-grid">
-    <app-item-selector
-        [items]="artItems"
-    ></app-item-selector>
-    
-    
-    <app-item-selector
-        [items]="artItems"
-    ></app-item-selector>
-</div> -->

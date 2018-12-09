@@ -3,6 +3,7 @@ import { ArtService } from './art.service';
 import { ArtItem } from './model/Interfaces';
 import { UserBlob, Item } from '../shared/gallery/model/Interfaces';
 import { CollectionUtils } from '../shared/CollectionUtils';
+import { MixcloudService } from '../mixcloud/mixcloud.service';
 
 /**
  * controller in charge of managing ArtItems
@@ -20,22 +21,38 @@ export class ArtComponent implements OnInit {
 
   public artBlob: UserBlob;
 
+  public galleryItemsLeft: Array<Item>;
+  public galleryItemsRight: Array<Item>;
+
   /**
    * @method constructor
    * @description injects ArtService
    * @param artService
    * @type ArtService
    */
-  constructor(private artService: ArtService) { }
+  constructor(private artService: ArtService,
+    private mixcloudService: MixcloudService) { }
 
   /**
    * @method ngOnInit
    * @description Angular lifecycle method
    */
   ngOnInit() {
-    this.artBlob = {
-      data: this.artService.getArtItems()
-    };
+    // this.artBlob = {
+    // data: this.artService.getArtItems()
+    // };
+
+    this.initServices();
+  }
+
+  private async initServices() {
+    this.artBlob = await this.mixcloudService.getCloudcasts();
+    console.log(this.artBlob);
+
+    this.galleryItemsLeft = this.artBlob.data.splice(0, this.artBlob.data.length * .5);
+    this.galleryItemsRight = this.artBlob.data.splice(this.artBlob.data.length * .5);
+    console.log(this.galleryItemsLeft);
+    console.log(this.galleryItemsRight);
   }
 
   /**

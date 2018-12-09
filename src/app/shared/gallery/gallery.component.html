@@ -1,7 +1,7 @@
 <div *ngIf="blob">
   <div class="item-grid">
     <div *ngFor="let item of blob.data" class="cloudcast" (click)="onItemClicked(item)">
-      <img class="cast-thumbnail" [src]="item.pictures.medium" >
+      <img class="cast-thumbnail" [src]="item.thumbnailUrl" >
       <p>{{ item.name }}</p>
     </div>
   </div>

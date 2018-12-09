@@ -135,7 +135,6 @@ export class MixcloudComponent implements OnInit {
     const limit = 0;  // 0 : get all
     const cloudCastBlob = await this.mixcloudService.getCloudcasts(limit);
 
-
     try {
       this.cloudCastBlob = cloudCastBlob;
 
@@ -159,6 +158,8 @@ export class MixcloudComponent implements OnInit {
       console.log('failed assigning response to news array');
     }
   }
+
+  
 
   /**
    * extracts source url for widget for a specific or a random cast

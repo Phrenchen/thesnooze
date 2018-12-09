@@ -28,7 +28,7 @@ export class ArtService {
     }
     return this.artItems;
   }
-  
+
   /**
    * @private
    * @method get staticArtItems
@@ -37,16 +37,65 @@ export class ArtService {
    */
   private get staticArtItems(): ArtItem[] {
     return [
-      // {
-      //   id: '',
-      //   created_time: '',
+      {
+        id: '',
+        created_time: '',
+        user: null,
+        pictures: [
 
+        ],
+        thumbnailUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
 
-      //   title: 't1',
-      //   description: 'desc1',
-      //   imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
-      //   externalUrl: ''
-      // },
+        title: 't1',
+        description: 'desc1',
+        imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
+        externalUrl: ''
+      },
+      
+      {
+        id: '',
+        created_time: '',
+        user: null,
+        pictures: [
+
+        ],
+        thumbnailUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
+
+        title: 't1',
+        description: 'desc1',
+        imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
+        externalUrl: ''
+      },
+
+      {
+        id: '',
+        created_time: '',
+        user: null,
+        pictures: [
+
+        ],
+        thumbnailUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
+
+        title: 't1',
+        description: 'desc1',
+        imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
+        externalUrl: ''
+      },
+
+      {
+        id: '',
+        created_time: '',
+        user: null,
+        pictures: [
+
+        ],
+        thumbnailUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
+
+        title: 't1',
+        description: 'desc1',
+        imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
+        externalUrl: ''
+      },
       // {
       //   title: 't2',
       //   description: 'desc2',

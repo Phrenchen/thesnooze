@@ -4,10 +4,8 @@
  * @class Item
  */
 
-export class Item {
+export interface Item {
     id: string;
-
-
 
     /**
      * creation-date-string - use for Date
@@ -21,6 +19,9 @@ export class Item {
      */
     user: User;
 
+    thumbnailUrl: string;
+
+    pictures: Array<string>;
 
 }
 
@@ -29,7 +30,7 @@ export class Item {
  * @module shared
  * @class UserBlob
  */
-export class UserBlob {
+export interface UserBlob {
     data: Array<Item>;
 
 }
@@ -39,6 +40,6 @@ export class UserBlob {
  * @module shared
  * @class User
  */
-export class User {
+export interface User {
     pictures: Object;
 }

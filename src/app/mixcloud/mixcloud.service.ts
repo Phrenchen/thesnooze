@@ -68,12 +68,24 @@ export class MixcloudService {
 
     return Axios.get(endpoint)
       .then((response: AxiosResponse<any>) => {
-        return response.data;
+        const resultBlob = this.convertToBlob(response.data);
+        return resultBlob;
       })
       .catch(error => {
         console.log('error: ' + error);
         return null;
       });
+  }
+
+  private convertToBlob(mixcloudResponse) {
+    console.log(mixcloudResponse);
+    const items: Array<any> = mixcloudResponse.data;
+
+    items.map(item => {
+      item['thumbnailUrl'] = item['pictures']['medium'];
+    });
+
+    return mixcloudResponse;
   }
 
   /**

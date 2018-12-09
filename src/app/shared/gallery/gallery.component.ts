@@ -19,6 +19,7 @@ export class GalleryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.blob);
   }
 
   public onItemClicked(item: Item) {

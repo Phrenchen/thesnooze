@@ -9,7 +9,7 @@ import { Item, UserBlob, User } from 'src/app/shared/gallery/model/Interfaces';
  * @extends Mixcloud.Item
  */
 
-export class CloudcastItem extends Item {
+export interface CloudcastItem extends Item {
     /**
      * source url for Mixcloud widget
      * * TODO! MOVE THIS TO CloudcastItem!
@@ -31,7 +31,7 @@ export class CloudcastItem extends Item {
     listener_count: number;
     name: string;
     url: string;
-    pictures: Array<any>;
+    
     repost_count: number;
     updated_time: string;       // date
     comment_count: number;
@@ -48,7 +48,7 @@ export class CloudcastItem extends Item {
  * @extends Mixcloud.UserBlob
  */
  // * @extends {{#crossLink "Mixcloud.UserBlob"}}UserBlob{{/crossLink}}
-export class CloudcastUserBlob extends UserBlob {
+export interface CloudcastUserBlob extends UserBlob {
     name: string;
     paging: Object;
 }
@@ -63,7 +63,7 @@ export class CloudcastUserBlob extends UserBlob {
  * @class MixcloudUser
  * @extends Mixcloud.User
  */
-export class MixCloudUser extends User {
+export interface MixCloudUser extends User {
     key: string;
     name: string;
     url: string;

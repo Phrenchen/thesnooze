@@ -1,15 +1,26 @@
 <h2>Art</h2>
-<app-gallery
-    [blob]="artBlob"
-    (doAction)="doActionOnSelectedItem($event)"
+<div class="art-grid">
+    <app-gallery
+        [blob]="artBlob"
+        (doAction)="doActionOnSelectedItem($event)"
     ></app-gallery>
+    
+    <img src="{{centerImageUrl}}" >
+    
+    <app-gallery
+        [blob]="artBlob"
+        (doAction)="doActionOnSelectedItem($event)"
+    ></app-gallery>
+</div>
+
+
+
 
 <!-- <div class="art-grid">
     <app-item-selector
         [items]="artItems"
     ></app-item-selector>
     
-    <img src="{{centerImageUrl}}" >
     
     <app-item-selector
         [items]="artItems"

@@ -10,6 +10,20 @@ import { Item, UserBlob, User } from 'src/app/shared/gallery/model/Interfaces';
  */
 
 export class CloudcastItem extends Item {
+    /**
+     * source url for Mixcloud widget
+     * * TODO! MOVE THIS TO CloudcastItem!
+     * @attribute {string} key
+     * */
+    key: string;
+
+    /**
+     * use for Date
+     * * TODO! MOVE THIS TO CloudcastItem!
+     * @attribute audio_length
+     */
+    audio_length: number;
+
     tags: Array<string>;
     play_count: number;
     slug: string;

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ArtItem } from '../model/ArtItem';
+import { ArtItem } from '../model/Interfaces';
 
 @Component({
   selector: 'app-item-selector',

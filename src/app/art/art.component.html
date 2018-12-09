@@ -1,5 +1,10 @@
 <h2>Art</h2>
-<div class="art-grid">
+<app-gallery
+    [blob]="artBlob"
+    (doAction)="doActionOnSelectedItem($event)"
+    ></app-gallery>
+
+<!-- <div class="art-grid">
     <app-item-selector
         [items]="artItems"
     ></app-item-selector>
@@ -9,4 +14,4 @@
     <app-item-selector
         [items]="artItems"
     ></app-item-selector>
-</div>
+</div> -->

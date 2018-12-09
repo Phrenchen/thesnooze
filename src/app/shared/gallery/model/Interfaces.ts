@@ -5,18 +5,9 @@
  */
 
 export class Item {
-    /**
-     * unique identifier
-     * @attribute {string} id
-     * */
     id: string;
 
-    /**
-     * source url for Mixcloud widget
-     * * TODO! MOVE THIS TO CloudcastItem!
-     * @attribute {string} key
-     * */
-    key: string;
+
 
     /**
      * creation-date-string - use for Date
@@ -30,12 +21,7 @@ export class Item {
      */
     user: User;
 
-    /**
-     * use for Date
-     * * TODO! MOVE THIS TO CloudcastItem!
-     * @attribute audio_length
-     */
-    audio_length: number;
+
 }
 
 /**

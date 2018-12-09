@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MixcloudService } from './mixcloud.service';
-import { CloudcastUserBlob } from './model/Interfaces';
+import { CloudcastUserBlob, CloudcastItem } from './model/Interfaces';
 import { MathHelper } from '../shared/MathHelper';
 import { Item } from '../shared/gallery/model/Interfaces';
 import { CollectionUtils } from '../shared/CollectionUtils';
@@ -34,7 +34,7 @@ export class MixcloudComponent implements OnInit {
 
   public cloudCastBlob: CloudcastUserBlob;
 
-  public selectedItem: Item = null;
+  public selectedItem: CloudcastItem = null;
 
   private widgetSource: string;
 
@@ -48,7 +48,7 @@ export class MixcloudComponent implements OnInit {
    */
   constructor(
     private mixcloudService: MixcloudService
-    ) { }
+  ) { }
 
 
   /**
@@ -115,7 +115,7 @@ export class MixcloudComponent implements OnInit {
    * @method doActionOnSelectedItem
    * @param {Item} item for overlay
    */
-  public doActionOnSelectedItem(item: Item) {
+  public doActionOnSelectedItem(item: CloudcastItem) {
     console.log('do action on selected item: ' + item);
     CollectionUtils.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
     this.widgetSource = item.key;
@@ -175,7 +175,7 @@ export class MixcloudComponent implements OnInit {
         castId = MathHelper.getRandomInt(0, cloudCastBlob.data.length - 1);
       }
 
-      return cloudCastBlob.data[castId].key;
+      return (cloudCastBlob.data[castId] as CloudcastItem).key;
     } catch (e) {
       console.log('failed to get widget source for item: ' + castId);
       return '';

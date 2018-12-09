@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Item } from '../model/Interfaces';
+import { CloudcastItem } from 'src/app/mixcloud/model/Interfaces';
 
 @Component({
   selector: 'app-gallery-overlay',
@@ -9,7 +9,7 @@ import { Item } from '../model/Interfaces';
 export class GalleryOverlayComponent implements OnInit {
 
 
-  @Input() item: Item;
+  @Input() item: CloudcastItem;
 
   @Output() closeMe: EventEmitter<any> = new EventEmitter<any>();
   @Output() doAction: EventEmitter<string> = new EventEmitter<string>();

@@ -3,7 +3,6 @@ import { UserBlob, Item } from './model/Interfaces';
 
 /**
  * @class GalleryComponent
- * 
  */
 @Component({
   selector: 'app-gallery',

@@ -48,22 +48,6 @@ export class ArtService {
 
         title: 't1',
         description: 'desc1',
-        imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
-        externalUrl: ''
-      },
-      
-      {
-        id: '',
-        created_time: '',
-        user: null,
-        pictures: [
-
-        ],
-        thumbnailUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
-
-        title: 't1',
-        description: 'desc1',
-        imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
         externalUrl: ''
       },
 
@@ -78,7 +62,6 @@ export class ArtService {
 
         title: 't1',
         description: 'desc1',
-        imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
         externalUrl: ''
       },
 
@@ -93,9 +76,22 @@ export class ArtService {
 
         title: 't1',
         description: 'desc1',
-        imageUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
         externalUrl: ''
       },
+
+      {
+        id: '',
+        created_time: '',
+        user: null,
+        pictures: [
+
+        ],
+        thumbnailUrl: ArtService.imageBaseUrl + '16b614c5128943c6.png',
+
+        title: 't1',
+        description: 'desc1',
+        externalUrl: ''
+      }
       // {
       //   title: 't2',
       //   description: 'desc2',

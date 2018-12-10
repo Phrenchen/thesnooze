@@ -110,12 +110,17 @@ export class MixcloudComponent implements OnInit {
     return this.cloudCastBlob != null;
   }
 
+  public doThumbnailAction(item: CloudcastItem) {
+    console.log('do thumbnail action: ' + item);
+  }
+
   /**
-   * event handling. set selected cast (user clicked on grid-item). bound to view
-   * @method doActionOnSelectedItem
+   * set selected cast (user clicked on grid-item).
+   * event handling. bound to view
+   * @method doOVerlayAction
    * @param {Item} item for overlay
    */
-  public doActionOnSelectedItem(item: CloudcastItem) {
+  public doOVerlayAction(item: CloudcastItem) {
     console.log('do action on selected item: ' + item);
     CollectionUtils.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
     this.widgetSource = item.key;

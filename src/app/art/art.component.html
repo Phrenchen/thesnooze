@@ -1,8 +1,16 @@
 <h2>Art</h2>
 <div class="art-grid">
-    <app-gallery [items]="galleryItemsLeft" (doAction)="doActionOnSelectedItem($event)"></app-gallery>
+    <app-gallery 
+        [items]="galleryItemsLeft" 
+        (doThumbnailAction)="doThumbnailAction($event)"
+        
+    ></app-gallery>
 
-    <img src="{{centerImageUrl}}">
+    <app-art-item-details *ngIf="hasSelectedItem()"
+        [item]="selectedItem"
+    ></app-art-item-details>
+
+    <!-- <img src="{{centerImageUrl}}"> -->
 
     <!-- <app-gallery
         [items]="galleryItemsRight"

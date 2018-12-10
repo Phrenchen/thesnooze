@@ -1,7 +1,8 @@
-<div *ngFor="let item of items">
-  <div class="art-item">
-    <h4>{{item.title}}</h4>
-    <img src="{{item.imageUrl}}">
-    <p>{{item.description}}</p>
-  </div>
+<div *ngIf="item"
+  class="art-item">
+  
+  <h4>{{item.name}}</h4>
+  <img src="{{item.thumbnailUrl}}">
+    <!-- <p class="description">{{description}}</p> -->
+
 </div>

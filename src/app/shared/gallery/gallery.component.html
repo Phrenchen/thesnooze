@@ -1,4 +1,4 @@
-<div *ngIf="items">
+<div *ngIf="items" class="item-grid-container">
   <div class="item-grid">
     <div *ngFor="let item of items" class="cloudcast" (click)="onItemClicked(item)">
       <img class="cast-thumbnail" [src]="item.thumbnailUrl" >

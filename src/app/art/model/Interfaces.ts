@@ -10,6 +10,5 @@ export interface ArtItem extends Item {
     title: string;
     description: string;
 
-    imageUrl: string;
     externalUrl: string;
 }

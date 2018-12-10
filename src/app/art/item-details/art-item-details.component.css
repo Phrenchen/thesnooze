@@ -1,10 +1,30 @@
-.selection-item{
-    min-width: 50px;
-    min-height: 50px;
-    border: 1px solid black;
-
+.art-item{
+    min-width: 50vw;
+    /* min-height: 50vh; */
+    max-height: 50vh;
+    
+    /* height: 100%; */
+    /* width: 100%; */
+    color: black;
+    
+    overflow: scroll;
+    overflow-x: hidden;
+    /* overflow: hidden; */
+    /* overflow-y: hidden; */
 }
 
-.art-item{
-    border: 1px solid black;
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.description{
+    /* overflow: auto; */
+    /* overflow-y: hidden; */
+    box-sizing: content-box;
+}
+
+img{
+    max-width: 100px;
+    max-height: 100px;
 }

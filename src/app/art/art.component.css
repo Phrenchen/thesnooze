@@ -1,11 +1,14 @@
 .art-grid{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr min-content;
+    height: 100%;
 }
 
 .selection-left{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 25%; 
+    grid-template-rows: 1fr;
+    /* width: 25%;  */
+
 }
 

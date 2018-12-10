@@ -13,7 +13,10 @@ export class GalleryComponent implements OnInit {
 
   @Input() items: Array<Item>;
   @Input() overlayEnabled = false;
-  @Output() doAction: EventEmitter<Item> = new EventEmitter<Item>();
+  // @Input() displayMode: GalleryItemDisplayMode;
+
+  @Output() doOverlayAction: EventEmitter<Item> = new EventEmitter<Item>();
+  @Output() doThumbnailAction: EventEmitter<Item> = new EventEmitter<Item>();
 
   public selectedItem: Item = null;
 
@@ -28,10 +31,16 @@ export class GalleryComponent implements OnInit {
 
   public get showOverlay(): boolean {
     return this.selectedItem && this.overlayEnabled;
+    // return this.selectedItem && this.showMode(GalleryItemDisplayMode.OVERLAY);
   }
+
+  // private showMode(displayMode: GalleryItemDisplayMode): boolean {
+    // return this.displayMode === displayMode;
+  // }
 
   public onItemClicked(item: Item) {
     this.selectedItem = item;
+    this.doThumbnailAction.emit(item);
   }
 
   /**

@@ -17,6 +17,8 @@ import { MixcloudService } from '../mixcloud/mixcloud.service';
 })
 export class ArtComponent implements OnInit {
 
+  public selectedItem: ArtItem = null;
+
   public centerImageUrl = './assets/images/vancouver-police-department-charity-dog-calendar-2019-coverimage.jpg';
 
   public artBlob: UserBlob;
@@ -49,10 +51,19 @@ export class ArtComponent implements OnInit {
     this.artBlob = await this.mixcloudService.getCloudcasts();
     console.log(this.artBlob);
 
-    this.galleryItemsLeft = this.artBlob.data.splice(0, this.artBlob.data.length * .5);
+    this.selectedItem = this.artBlob.data[0] as ArtItem;
+
+    const itemCountLeftGrid = 30;
+
+    this.galleryItemsLeft = this.artBlob.data.splice(0, itemCountLeftGrid);
     this.galleryItemsRight = this.artBlob.data.splice(this.artBlob.data.length * .5);
     console.log(this.galleryItemsLeft);
     console.log(this.galleryItemsRight);
+  }
+
+  public hasSelectedItem(): boolean {
+    console.log(this.selectedItem !== null);
+    return this.selectedItem !== null;
   }
 
   /**
@@ -69,10 +80,13 @@ export class ArtComponent implements OnInit {
    * @method doActionOnSelectedItem
    * @param {Item} item for overlay
    */
-  public doActionOnSelectedItem(item: ArtItem) {
-    console.log('do action on selected item: ' + item);
-    // CollectionUtils.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
-    // this.widgetSource = item.key;
-  }
+  public doThumbnailAction(item: ArtItem) {
+    console.log(item);
+    // console.log(item !== this.selectedItem);
+    // this.selectedItem = item;
+    const isSameItem = item && item === this.selectedItem;
 
+    this.selectedItem = isSameItem ? null : item;
+    // this.selectedItem = Object.create(item);
+  }
 }

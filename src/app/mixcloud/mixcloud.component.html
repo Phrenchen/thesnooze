@@ -15,7 +15,8 @@
   <app-gallery
     [overlayEnabled]="true"
     [items]="cloudCastBlob.data"
-    (doAction)="doActionOnSelectedItem($event)"
+    (doThumbnailAction)="doThumbnailAction($event)"
+    (doOVerlayAction)="doOVerlayAction($event)"
     ></app-gallery>
 
 </div>

@@ -11,6 +11,8 @@
     overflow-x: hidden;
     /* overflow: hidden; */
     /* overflow-y: hidden; */
+
+    border: 1px solid black;
 }
 
 ::-webkit-scrollbar {

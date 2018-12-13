@@ -112,6 +112,19 @@ export class MixcloudComponent implements OnInit {
 
   public doThumbnailAction(item: CloudcastItem) {
     console.log('do thumbnail action: ' + item);
+    this.selectedItem = item;
+  }
+
+  public get showOverlay(): boolean {
+    return this.selectedItem !== null;
+  }
+
+  /**
+   * event handling. closes the detail-overview by de-selecting the active cast
+   * @method closeOverlay
+   */
+  public closeOverlay(): void {
+    this.selectedItem = null;
   }
 
   /**
@@ -120,10 +133,10 @@ export class MixcloudComponent implements OnInit {
    * @method doOVerlayAction
    * @param {Item} item for overlay
    */
-  public doOVerlayAction(item: CloudcastItem) {
-    console.log('do action on selected item: ' + item);
+  public doOVerlayAction() {
+    console.log('do action on selected item: ' + this.selectedItem);
     CollectionUtils.safeAdd(this.widgetConfig, WidgetConfig.AUTO_PLAY);
-    this.widgetSource = item.key;
+    this.widgetSource = this.selectedItem.key;
   }
 
 
@@ -164,7 +177,7 @@ export class MixcloudComponent implements OnInit {
     }
   }
 
-  
+
 
   /**
    * extracts source url for widget for a specific or a random cast

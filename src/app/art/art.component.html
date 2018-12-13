@@ -1,20 +1,15 @@
 <h2>Art</h2>
+<p>
+    click on a show to see it large.<br/>
+    click on the overlay-image to close it.
+</p>
 <div class="art-grid">
     <app-gallery 
         [items]="galleryItemsLeft" 
         (doThumbnailAction)="doThumbnailAction($event)"
-        
     ></app-gallery>
 
     <app-art-item-details *ngIf="hasSelectedItem()"
         [item]="selectedItem"
     ></app-art-item-details>
-
-    <!-- <img src="{{centerImageUrl}}"> -->
-
-    <!-- <app-gallery
-        [items]="galleryItemsRight"
-        (doAction)="doActionOnSelectedItem($event)"
-    ></app-gallery> -->
-
 </div>

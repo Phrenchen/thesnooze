@@ -16,7 +16,13 @@
     [overlayEnabled]="true"
     [items]="cloudCastBlob.data"
     (doThumbnailAction)="doThumbnailAction($event)"
-    (doOVerlayAction)="doOVerlayAction($event)"
     ></app-gallery>
+    <!-- (doOVerlayAction)="doOVerlayAction($event)" -->
+
+  <app-mixcloud-details *ngIf="showOverlay"
+    [item]="selectedItem"
+    (closeMe)="closeOverlay();"
+    (doAction)="doOVerlayAction()"
+  ></app-mixcloud-details>
 
 </div>

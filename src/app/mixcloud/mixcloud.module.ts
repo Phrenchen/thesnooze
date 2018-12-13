@@ -5,6 +5,7 @@ import { MixcloudRoutingModule } from './mixcloud-routing.module';
 import { MixcloudComponent } from './mixcloud.component';
 import { SharedModule } from '../shared/shared.module';
 import { WidgetUrlPipePipe } from './pipes/widget-url-pipe.pipe';
+import { MixcloudDetailsComponent } from './mixcloud-details/mixcloud-details.component';
 
 
 /**
@@ -19,6 +20,7 @@ import { WidgetUrlPipePipe } from './pipes/widget-url-pipe.pipe';
   ],
   declarations: [
     MixcloudComponent,
+    MixcloudDetailsComponent,
     WidgetUrlPipePipe
   ]
 })

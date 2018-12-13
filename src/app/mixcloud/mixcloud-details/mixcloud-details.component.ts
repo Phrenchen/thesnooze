@@ -2,11 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CloudcastItem } from 'src/app/mixcloud/model/Interfaces';
 
 @Component({
-  selector: 'app-gallery-overlay',
-  templateUrl: './gallery-overlay.component.html',
-  styleUrls: ['./gallery-overlay.component.css']
+  selector: 'app-mixcloud-details',
+  templateUrl: './mixcloud-details.component.html',
+  styleUrls: ['./mixcloud-details.component.css']
 })
-export class GalleryOverlayComponent implements OnInit {
+export class MixcloudDetailsComponent implements OnInit {
 
 
   @Input() item: CloudcastItem;

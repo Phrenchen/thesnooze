@@ -1,8 +1,18 @@
-<div *ngIf="item"
+<div *ngIf="item" >
+    <div *ngIf="isLoading" class="centered-overlay">Loading&#8230;</div>
+  
+    <div *ngIf="!isLoading" class="centered-overlay" >
+      
+      <h3>{{item.name}}</h3>
+      
+    </div>  
+  </div>
+
+<!-- <div *ngIf="item"
   class="art-item">
   
   <h4>{{item.name}}</h4>
   <img src="{{item.thumbnailUrl}}">
-    <p class="description">{{description}}</p>
+  <p class="description">{{description}}</p>
 
-</div>
+</div> -->

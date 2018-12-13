@@ -5,10 +5,4 @@
       <p>{{ item.name }}</p>
     </div>
   </div>
-
-  <app-gallery-overlay *ngIf="showOverlay"
-    [item]="selectedItem"
-    (closeMe)="closeOverlay();"
-    (doAction)="triggerAction(selectedItem)"
-  ></app-gallery-overlay>
 </div>

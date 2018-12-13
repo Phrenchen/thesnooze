@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GalleryOverlayComponent } from './gallery-overlay.component';
+import { MixcloudDetailsComponent } from './mixcloud-details.component';
 
-describe('GalleryOverlayComponent', () => {
-  let component: GalleryOverlayComponent;
-  let fixture: ComponentFixture<GalleryOverlayComponent>;
+describe('MixcloudDetailsComponent', () => {
+  let component: MixcloudDetailsComponent;
+  let fixture: ComponentFixture<MixcloudDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GalleryOverlayComponent ]
+      declarations: [ MixcloudDetailsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GalleryOverlayComponent);
+    fixture = TestBed.createComponent(MixcloudDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

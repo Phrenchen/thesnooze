@@ -43,18 +43,12 @@ export class GalleryComponent implements OnInit {
     this.doThumbnailAction.emit(item);
   }
 
-  /**
-   * event handling. closes the detail-overview by de-selecting the active cast
-   * @method closeOverlay
-   */
-  public closeOverlay(): void {
-    this.selectedItem = null;
-  }
+  
 
 
-  public triggerAction(item: Item): void {
+  // public triggerAction(item: Item): void {
     // this.doAction.emit(item);
-  }
+  // }
 
 
 

@@ -3,13 +3,24 @@
   displays array of buttons linking to other routes
 -->
 <div class="menu-grid">
-  <button mat-raised-button [routerLink]="['/mixcloud']"
-    class="menu-button"
-  >
-    <h4 class="menu-button-label">WallPlugTuna</h4>
-</button>
   
-  <button mat-raised-button [routerLink]="['/art']"
+  
+  <button mat-raised-button [routerLink]="['/mixcloud']">
+    <i class="fas fa-play-circle icon btn_selectWidget"></i>
+    WallPlugTuna
+  </button>
+  
+  <button mat-raised-button [routerLink]="['/art']">
+    <i class="fas fa-play-circle "></i>
+    Art
+  </button>
+
+  <button mat-raised-button [routerLink]="['/about']">
+    <i class="fas fa-play-circle icon btn_selectWidget"></i>
+    About
+  </button>
+
+  <!-- <button mat-raised-button [routerLink]="['/art']"
     class="menu-button"
   >
     <h4 class="menu-button-label">Art</h4>
@@ -19,5 +30,5 @@
     class="menu-button"
   >
     <h4 class="menu-button-label">About</h4>
-</button>
+</button> -->
 </div>

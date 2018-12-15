@@ -6,7 +6,8 @@
         display: grid;
         grid-template-columns: 1fr min-content;
         /* border: 1px solid black; */
-        
+        /* position: fixed;
+        right: 50px; */
     }
 /* } */
 
@@ -14,26 +15,26 @@
 #mixcloud-widget{
     height: 60px;
     /* width: 70%; */
-}
-
-#btn-random{
-
-    /* width: 30%; */
+    background-color: var(--primary-color-light);
 }
 
 
 /* header */
 .header-grid{
     display: grid;
-    grid-template-columns: 1fr max-content 1fr;
+    grid-template-columns: max-content;
     width: 100%;
     justify-items: center;
     align-self: center;
 
     align-items: center;
 
+    text-align: center;
+
     margin-top: 15px;
     margin-bottom: 15px;
+
+    color: var(--primary-color-light);
 }
 
 .header-portrait{

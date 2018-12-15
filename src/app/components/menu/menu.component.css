@@ -2,18 +2,26 @@
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.menu-link-button{
+    background-color: var(--primary-color-light);
+
+    padding-left: 3vw;
+    padding-right: 3vw;
 }
 
 .menu-button{
     width: 100%;
-    background: lightgrey;
+    background: white;
     text-align: center;
     
-    border: 1px solid black;
+    border: 1px solid var(--primary-color);
     border-radius: 10px;
     cursor: pointer;
 }
 
 .menu-button-label{
-    color: white;
+    color: var(--secondary-color);
 }

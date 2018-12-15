@@ -1,2 +1,18 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+/* variables */
+:root {
+    --primary-color: #258287; /* türkise */
+    --primary-color-light: #28b0b8; /* türkise */
+    --secondary-color: #dedede; /* light grey */
+    --tertiary-color: #c25541; /* orange */
+    
+  }
+  
+
+
+/* --- */
+.content{
+    height: 100%;
+    
+}

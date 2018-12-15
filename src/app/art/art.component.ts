@@ -51,7 +51,8 @@ export class ArtComponent implements OnInit {
     this.artBlob = await this.mixcloudService.getCloudcasts();
     console.log(this.artBlob);
 
-    this.selectedItem = this.artBlob.data[0] as ArtItem;
+    // pre-select item -> overlay on start
+    // this.selectedItem = this.artBlob.data[0] as ArtItem;
 
     const itemCountLeftGrid = 30;
 
@@ -74,6 +75,11 @@ export class ArtComponent implements OnInit {
   public get artItems(): Item[] {
     return this.artBlob.data;
   }
+
+  public closeOverlay(): void {
+    this.selectedItem = null;
+  }
+
 
   /**
    * event handling. set selected cast (user clicked on grid-item). bound to view

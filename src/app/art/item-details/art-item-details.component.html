@@ -3,6 +3,8 @@
   
     <div *ngIf="!isLoading" class="centered-overlay" >
       
+      <img [src]="item.pictures.extra_large"
+        (click)="closeOverlay()">
       <h3>{{item.name}}</h3>
       
     </div>  

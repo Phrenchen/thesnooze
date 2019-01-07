@@ -1,8 +1,11 @@
+
 .menu-grid{
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+
+    margin-bottom: 20px;
 }
 
 .menu-link-button{

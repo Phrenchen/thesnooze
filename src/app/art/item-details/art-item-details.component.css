@@ -14,8 +14,6 @@
     max-height: 100%;
 
     text-align: center;
-
-    overflow: hidden;
 }
 
 
@@ -26,9 +24,6 @@
     max-height: 50vh;
     
     color: var(--secondary-color);
-    
-    overflow: scroll;
-    overflow-x: hidden;
 
     border: 1px solid var(--primary-color);
 }

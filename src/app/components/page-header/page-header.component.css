@@ -15,34 +15,6 @@
 
     max-width: 1920px;
     max-height: 154px;
+
+    margin-bottom: 20px;
 }
-
-#global-header-image-mask{
-    position: fixed;
-    z-index: 2;
-
-    /* max-width: 283px;
-    max-height: 283px; */
-
-    max-width: 100px;
-    max-height: 100px;
-}
-
-#global-header-image-cube{
-    position: fixed;
-    z-index: 0;
-
-    /* max-width: 145px;
-    max-height: 167px; */
-
-    max-width: 145px;
-    max-height: 100px;
-}
-
-#global-header-image-portrait{
-
-}
-
-/* img{
-    max-width: 100%;
-} */

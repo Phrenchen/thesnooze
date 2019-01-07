@@ -15,8 +15,6 @@
     /* align-items: center; */
     /* justify-items: center; */
 
-    overflow-x: hidden;
-    
 }
 
 .cloudcast{
@@ -28,7 +26,7 @@
     text-align: center;
     cursor: pointer;
 
-    transition: all .52s ease-out;
+    transition: all .32s ease-out;
 
     /* border: 1px solid black;
     border-radius: 10px; */
